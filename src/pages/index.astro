@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Container from "../components/common/Container.astro";
 import SectionTitle from "../components/common/SectionTitle.astro";
+import Button from "../components/ui/Button.astro";
 ---
 
 <Layout>
@@ -9,12 +10,37 @@ import SectionTitle from "../components/common/SectionTitle.astro";
     <section class="section">
       <Container>
         <SectionTitle
-  			eyebrow="Proyectos destacados"
-  			title="Hacemos realidad cada visión"
-  			description="Una selección de proyectos realizados por CIRCROM."
-  			align="center"
-		/>
+          eyebrow="Proyectos destacados"
+          title="Hacemos realidad cada visión"
+          description="Una selección de proyectos realizados por CIRCROM."
+          align="center"
+        />
+
+        <div class="button-test">
+          <Button href="/proyectos">
+            Ver proyectos
+          </Button>
+
+          <Button href="/nosotros" variant="secondary">
+            Conocer más
+          </Button>
+
+          <Button variant="ghost">
+            Contacto
+          </Button>
+        </div>
       </Container>
     </section>
   </main>
 </Layout>
+
+<style>
+  .button-test {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+
+    margin-top: var(--space-6);
+  }
+</style>
