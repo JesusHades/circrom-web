@@ -1,0 +1,98 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  align?: "left" | "center";
+  class?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  align = "left",
+  class: className = "",
+} = Astro.props;
+---
+
+<header
+  class:list={[
+    "section-title",
+    `section-title--${align}`,
+    className,
+  ]}
+>
+  {eyebrow && (
+    <p class="section-title__eyebrow">
+      {eyebrow}
+    </p>
+  )}
+
+  <h2 class="section-title__heading">
+    {title}
+  </h2>
+
+  {description && (
+    <p class="section-title__description">
+      {description}
+    </p>
+  )}
+</header>
+
+<style>
+  .section-title {
+    max-width: 42rem;
+  }
+
+  .section-title--center {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .section-title__eyebrow {
+    margin-bottom: var(--space-2);
+
+    color: var(--color-primary);
+
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+
+    line-height: 1.2;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .section-title__heading {
+    color: var(--color-text);
+
+    font-size: var(--font-size-2xl);
+    line-height: var(--line-height-tight);
+  }
+
+  .section-title__description {
+    margin-top: var(--space-4);
+
+    max-width: 38rem;
+
+    color: var(--color-text-muted);
+
+    font-size: var(--font-size-base);
+  }
+
+  .section-title--center .section-title__description {
+    margin-inline: auto;
+  }
+
+  @media (min-width: 48rem) {
+    .section-title__heading {
+      font-size: var(--font-size-3xl);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .section-title__heading {
+      font-size: var(--font-size-4xl);
+    }
+  }
+</style>
