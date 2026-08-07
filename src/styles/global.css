@@ -17,12 +17,15 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+
   background-color: var(--color-background);
   color: var(--color-text);
+
   font-family: var(--font-body);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-body);
+
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -74,7 +77,15 @@ ul, ol {
     calc(100% - (var(--container-padding) * 2)),
     var(--container-max-width)
   );
+
   margin-inline: auto;
+}
+
+.container--wide {
+  width: min(
+    calc(100% - (var(--container-padding) * 2)),
+    88rem
+  );
 }
 
 .section {
@@ -119,6 +130,10 @@ ul, ol {
   }
 }
 
+/* ========================================
+   Reduced motion
+======================================== */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -127,7 +142,6 @@ ul, ol {
   *,
   *::before,
   *::after {
-    scroll-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
