@@ -1,0 +1,105 @@
+---
+import Container from "../common/Container.astro";
+import SectionTitle from "../common/SectionTitle.astro";
+import Card from "../ui/Card.astro";
+
+const features = [
+  {
+    title: "Calidad garantizada",
+    description:
+      "Trabajamos con materiales de primera y procesos cuidadosamente supervisados.",
+  },
+  {
+    title: "Equipo profesional",
+    description:
+      "Contamos con especialistas comprometidos con cada etapa del proyecto.",
+  },
+  {
+    title: "Entregas a tiempo",
+    description:
+      "Planificamos cada proyecto para cumplir los tiempos establecidos.",
+  },
+  {
+    title: "Compromiso sostenible",
+    description:
+      "Buscamos soluciones responsables con el entorno y enfocadas en el futuro.",
+  },
+];
+---
+
+<section class="about section" id="nosotros">
+  <Container>
+    <SectionTitle
+      eyebrow="¿Por qué elegirnos?"
+      title="Construimos confianza desde el primer día"
+      description="Nuestro compromiso es ofrecer soluciones confiables, eficientes y de alta calidad en cada proyecto."
+    />
+
+    <div class="about__grid">
+      {
+        features.map((feature) => (
+          <Card hover class="about__card">
+            <div class="about__icon">
+              :)
+            </div>
+
+            <h3>{feature.title}</h3>
+
+            <p>{feature.description}</p>
+          </Card>
+        ))
+      }
+    </div>
+  </Container>
+</section>
+
+<style>
+  .about {
+    background: var(--color-white);
+  }
+
+  .about__grid {
+    display: grid;
+    gap: var(--space-5);
+
+    margin-top: var(--space-7);
+  }
+
+  .about__icon {
+    display: grid;
+    place-items: center;
+
+    width: 3.5rem;
+    height: 3.5rem;
+
+    margin-bottom: var(--space-5);
+
+    border-radius: var(--radius-md);
+
+    background: var(--color-secondary-light);
+
+    color: var(--color-secondary);
+
+    font-size: 1.5rem;
+  }
+
+  .about__card h3 {
+    margin-bottom: var(--space-3);
+  }
+
+  .about__card p {
+    color: var(--color-text-muted);
+  }
+
+  @media (min-width: 48rem) {
+    .about__grid {
+      grid-template-columns: repeat(2,1fr);
+    }
+  }
+
+  @media (min-width:64rem){
+    .about__grid{
+      grid-template-columns:repeat(4,1fr);
+    }
+  }
+</style>
