@@ -1,0 +1,147 @@
+---
+import Container from "../common/Container.astro";
+import SectionTitle from "../common/SectionTitle.astro";
+import Badge from "../ui/Badge.astro";
+
+const projects = [
+  {
+    title: "Agencia Automotriz",
+    category: "Comercial",
+    type: "Construcción",
+  },
+  {
+    title: "Proyecto de remodelación",
+    category: "Remodelación",
+    type: "Adecuación de espacios",
+  },
+  {
+    title: "Proyecto corporativo",
+    category: "Comercial",
+    type: "Construcción",
+  },
+];
+---
+
+<section class="projects section section--alternate" id="proyectos">
+  <Container>
+    <SectionTitle
+      eyebrow="Proyectos destacados"
+      title="Hacemos realidad cada visión"
+      description="Una selección de proyectos desarrollados por CIRCROM con atención al detalle, funcionalidad y calidad."
+    />
+
+    <div class="projects__grid">
+      {
+        projects.map((project) => (
+          <article class="project-card">
+            <div class="project-card__image">
+              <span>Imagen del proyecto</span>
+            </div>
+
+            <div class="project-card__content">
+              <Badge variant="secondary">
+                {project.category}
+              </Badge>
+
+              <h3 class="project-card__title">
+                {project.title}
+              </h3>
+
+              <p class="project-card__type">
+                {project.type}
+              </p>
+
+              <a class="project-card__link" href="#">
+                Ver proyecto
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </Container>
+</section>
+
+<style>
+  .projects__grid {
+    display: grid;
+    gap: var(--space-6);
+
+    margin-top: var(--space-7);
+  }
+
+  .project-card {
+    overflow: hidden;
+
+    background-color: var(--color-white);
+
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-lg);
+
+    transition:
+      transform var(--transition-normal),
+      box-shadow var(--transition-normal);
+  }
+
+  .project-card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: var(--shadow-md);
+  }
+
+  .project-card__image {
+    display: grid;
+    place-items: center;
+
+    aspect-ratio: 4 / 3;
+
+    background-color: var(--color-gray-200);
+    color: var(--color-text-muted);
+  }
+
+  .project-card__content {
+    padding: var(--space-5);
+  }
+
+  .project-card__title {
+    margin-top: var(--space-4);
+
+    font-size: var(--font-size-xl);
+  }
+
+  .project-card__type {
+    margin-top: var(--space-2);
+
+    color: var(--color-text-muted);
+  }
+
+  .project-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+
+    margin-top: var(--space-5);
+
+    color: var(--color-primary);
+
+    font-weight: var(--font-weight-semibold);
+
+    transition: gap var(--transition-fast);
+  }
+
+  .project-card__link:hover {
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 48rem) {
+    .projects__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .projects__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
