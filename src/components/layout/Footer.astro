@@ -1,0 +1,194 @@
+---
+import Container from "../common/Container.astro";
+---
+
+<footer class="footer">
+  <Container>
+    <div class="footer__main">
+      <div class="footer__brand">
+        <a class="footer__logo" href="/" aria-label="CIRCROM - Inicio">
+          <img
+            src="/images/logo/circrom-logo.jpeg"
+            alt="CIRCROM"
+            width="180"
+            height="60"
+          />
+        </a>
+
+        <p class="footer__description">
+          Soluciones integrales en construcción, remodelación y supervisión de
+          proyectos con calidad, compromiso y atención al detalle.
+        </p>
+      </div>
+
+      <div class="footer__column">
+        <h3>Navegación</h3>
+
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/#servicios">Servicios</a></li>
+          <li><a href="/#proyectos">Proyectos</a></li>
+          <li><a href="/#nosotros">Nosotros</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__column">
+        <h3>Servicios</h3>
+
+        <ul>
+          <li>Construcción</li>
+          <li>Remodelación</li>
+          <li>Supervisión</li>
+          <li>Diseño y planeación</li>
+        </ul>
+      </div>
+
+      <div class="footer__column">
+        <h3>Contacto</h3>
+
+        <ul>
+          <li>
+            <a href="tel:+52XXXXXXXXXX">
+              +52 XX XXXX XXXX
+            </a>
+          </li>
+
+          <li>
+            <a href="mailto:contactocirc2025@gmail.com">
+              contactocirc2025@gmail.com
+            </a>
+          </li>
+
+          <li>
+            Azcapotzalco, Ciudad de México
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>
+        © {new Date().getFullYear()} CIRCROM. Todos los derechos reservados.
+      </p>
+
+      <div class="footer__legal">
+        <a href="#">Aviso de privacidad</a>
+        <a href="#">Términos y condiciones</a>
+      </div>
+    </div>
+  </Container>
+</footer>
+
+<style>
+  .footer {
+    padding-top: var(--space-8);
+
+    background-color: var(--color-dark);
+    color: var(--color-white);
+  }
+
+  .footer__main {
+    display: grid;
+    gap: var(--space-7);
+
+    padding-bottom: var(--space-8);
+  }
+
+  .footer__brand {
+    max-width: 22rem;
+  }
+
+  .footer__logo {
+    display: inline-block;
+    margin-bottom: var(--space-5);
+  }
+
+  .footer__logo img {
+    width: auto;
+    height: 3rem;
+
+    background-color: var(--color-white);
+    border-radius: var(--radius-sm);
+  }
+
+  .footer__description {
+    color: var(--color-gray-400);
+  }
+
+  .footer__column h3 {
+    margin-bottom: var(--space-4);
+
+    color: var(--color-white);
+
+    font-size: var(--font-size-base);
+  }
+
+  .footer__column ul {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .footer__column li,
+  .footer__column a {
+    color: var(--color-gray-400);
+    font-size: var(--font-size-sm);
+  }
+
+  .footer__column a {
+    transition: color var(--transition-fast);
+  }
+
+  .footer__column a:hover {
+    color: var(--color-primary);
+  }
+
+  .footer__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+
+    padding-block: var(--space-5);
+
+    border-top: var(--border-width) solid
+      rgb(255 255 255 / 12%);
+  }
+
+  .footer__bottom p,
+  .footer__legal a {
+    color: var(--color-gray-400);
+    font-size: var(--font-size-xs);
+  }
+
+  .footer__legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .footer__legal a {
+    transition: color var(--transition-fast);
+  }
+
+  .footer__legal a:hover {
+    color: var(--color-white);
+  }
+
+  @media (min-width: 48rem) {
+    .footer__main {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer__bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .footer__main {
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+    }
+  }
+</style>
