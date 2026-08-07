@@ -1,0 +1,165 @@
+---
+import Container from "../common/Container.astro";
+import SectionTitle from "../common/SectionTitle.astro";
+---
+
+<section class="contact section" id="contacto">
+  <Container>
+    <SectionTitle
+      eyebrow="Contacto"
+      title="Conversemos sobre tu proyecto"
+      description="Si tienes un proyecto de construcción, remodelación o adecuación, podemos ayudarte a analizar tus necesidades y encontrar la mejor solución."
+    />
+
+    <div class="contact__grid">
+      <div class="contact__info">
+        <article class="contact__item">
+          <span class="contact__label">
+            Teléfono
+          </span>
+
+          <a class="contact__value" href="tel:+52XXXXXXXXXX">
+            +52 XX XXXX XXXX
+          </a>
+        </article>
+
+        <article class="contact__item">
+          <span class="contact__label">
+            Correo
+          </span>
+
+          <a
+            class="contact__value"
+            href="mailto:contacto@circrom.com"
+          >
+            contactocirc2025@gmail.com
+          </a>
+        </article>
+
+        <article class="contact__item">
+          <span class="contact__label">
+            Ubicación
+          </span>
+
+          <p class="contact__value">
+            Azcapotzalco, Ciudad de México, México
+          </p>
+        </article>
+
+        <article class="contact__item">
+          <span class="contact__label">
+            WhatsApp
+          </span>
+
+          <a
+            class="contact__value contact__value--link"
+            href="https://wa.me/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Iniciar conversación →
+          </a>
+        </article>
+      </div>
+
+      <div class="contact__form">
+        <div class="contact__placeholder">
+          <p>Formulario de contacto</p>
+
+          <span>
+            Proximamente.
+          </span>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .contact {
+    background-color: var(--color-white);
+  }
+
+  .contact__grid {
+    display: grid;
+    gap: var(--space-7);
+
+    margin-top: var(--space-7);
+  }
+
+  .contact__info {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .contact__item {
+    padding-bottom: var(--space-5);
+
+    border-bottom: var(--border-width) solid var(--color-border);
+  }
+
+  .contact__label {
+    display: block;
+
+    margin-bottom: var(--space-2);
+
+    color: var(--color-text-muted);
+
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .contact__value {
+    color: var(--color-text);
+
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .contact__value--link {
+    color: var(--color-secondary);
+  }
+
+  .contact__form {
+    min-height: 24rem;
+  }
+
+  .contact__placeholder {
+    display: grid;
+    place-items: center;
+    align-content: center;
+
+    height: 100%;
+    min-height: 24rem;
+
+    padding: var(--space-6);
+
+    background-color: var(--color-background-alt);
+
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-lg);
+
+    text-align: center;
+  }
+
+  .contact__placeholder p {
+    margin-bottom: var(--space-2);
+
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .contact__placeholder span {
+    color: var(--color-text-muted);
+  }
+
+  @media (min-width: 64rem) {
+    .contact__grid {
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: var(--space-8);
+    }
+  }
+</style>
