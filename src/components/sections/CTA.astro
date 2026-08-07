@@ -1,0 +1,118 @@
+---
+import Container from "../common/Container.astro";
+import Button from "../ui/Button.astro";
+---
+
+<section class="cta section">
+  <Container class="cta__container">
+    <div class="cta__content">
+      <p class="cta__eyebrow">
+        ¿Tienes un proyecto?
+      </p>
+
+      <h2 class="cta__title">
+        Hablemos de tu próximo proyecto
+      </h2>
+
+      <p class="cta__description">
+        Cuéntanos tus ideas y necesidades. En CIRCROM podemos ayudarte a
+        convertirlas en un proyecto funcional, bien planeado y ejecutado.
+      </p>
+
+      <div class="cta__actions">
+        <Button href="#contacto" size="lg">
+          Cotizar proyecto
+        </Button>
+
+        <Button
+          href="https://wa.me/"
+          variant="secondary"
+          size="lg"
+        >
+          WhatsApp
+        </Button>
+      </div>
+    </div>
+
+    <div class="cta__visual" aria-hidden="true">
+      <span>Imagen del proyecto</span>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .cta {
+    background-color: var(--color-background-alt);
+  }
+
+  .cta__container {
+    display: grid;
+    align-items: center;
+    gap: var(--space-7);
+  }
+
+  .cta__content {
+    max-width: 40rem;
+  }
+
+  .cta__eyebrow {
+    margin-bottom: var(--space-3);
+
+    color: var(--color-primary);
+
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .cta__title {
+    font-size: var(--font-size-2xl);
+    line-height: var(--line-height-tight);
+  }
+
+  .cta__description {
+    max-width: 36rem;
+
+    margin-top: var(--space-4);
+
+    color: var(--color-text-muted);
+  }
+
+  .cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+
+    margin-top: var(--space-6);
+  }
+
+  .cta__visual {
+    display: grid;
+    place-items: center;
+
+    min-height: 18rem;
+
+    background-color: var(--color-gray-200);
+    border-radius: var(--radius-lg);
+
+    color: var(--color-text-muted);
+  }
+
+  @media (min-width: 48rem) {
+    .cta__title {
+      font-size: var(--font-size-3xl);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .cta__container {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .cta__visual {
+      min-height: 24rem;
+    }
+  }
+</style>
