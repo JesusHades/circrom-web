@@ -3,23 +3,7 @@ import Container from "../common/Container.astro";
 import SectionTitle from "../common/SectionTitle.astro";
 import Badge from "../ui/Badge.astro";
 
-const projects = [
-  {
-    title: "Agencia Automotriz",
-    category: "Comercial",
-    type: "Construcción",
-  },
-  {
-    title: "Proyecto de remodelación",
-    category: "Remodelación",
-    type: "Adecuación de espacios",
-  },
-  {
-    title: "Proyecto corporativo",
-    category: "Comercial",
-    type: "Construcción",
-  },
-];
+import { projects } from "../../data/projects";
 ---
 
 <section class="projects section section--alternate" id="proyectos">
