@@ -3,11 +3,25 @@ import Container from "../common/Container.astro";
 import SectionTitle from "../common/SectionTitle.astro";
 import Card from "../ui/Card.astro";
 
+import {
+  ShieldCheck,
+  Users,
+  Clock3,
+  Leaf,
+} from "lucide-astro";
+
 import { features } from "../../data/features";
+
+const featureIcons = [
+  ShieldCheck,
+  Users,
+  Clock3,
+  Leaf,
+];
 ---
 
 <section class="about section" id="nosotros">
-  <Container>
+  <Container class="container--wide">
     <SectionTitle
       eyebrow="¿Por qué elegirnos?"
       title="Construimos confianza desde el primer día"
@@ -16,17 +30,29 @@ import { features } from "../../data/features";
 
     <div class="about__grid">
       {
-        features.map((feature) => (
-          <Card hover class="about__card">
-            <div class="about__icon">
-              :)
-            </div>
+        features.map((feature, index) => {
+          const Icon = featureIcons[index];
 
-            <h3>{feature.title}</h3>
+          return (
+            <Card hover class="about__card">
+              <div class="about__icon" aria-hidden="true">
+                <Icon
+                  size={30}
+                  strokeWidth={1.8}
+                  absoluteStrokeWidth
+                />
+              </div>
 
-            <p>{feature.description}</p>
-          </Card>
-        ))
+              <h3 class="about__title">
+                {feature.title}
+              </h3>
+
+              <p class="about__description">
+                {feature.description}
+              </p>
+            </Card>
+          );
+        })
       }
     </div>
   </Container>
@@ -34,14 +60,18 @@ import { features } from "../../data/features";
 
 <style>
   .about {
-    background: var(--color-white);
+    background-color: var(--color-white);
   }
 
   .about__grid {
     display: grid;
-    gap: var(--space-5);
+    gap: var(--space-6);
 
     margin-top: var(--space-7);
+  }
+
+  .about__card {
+    height: 100%;
   }
 
   .about__icon {
@@ -53,32 +83,31 @@ import { features } from "../../data/features";
 
     margin-bottom: var(--space-5);
 
+    background-color: var(--color-secondary-light);
     border-radius: var(--radius-md);
 
-    background: var(--color-secondary-light);
-
     color: var(--color-secondary);
-
-    font-size: 1.5rem;
   }
 
-  .about__card h3 {
+  .about__title {
     margin-bottom: var(--space-3);
+
+    font-size: var(--font-size-lg);
   }
 
-  .about__card p {
+  .about__description {
     color: var(--color-text-muted);
   }
 
   @media (min-width: 48rem) {
     .about__grid {
-      grid-template-columns: repeat(2,1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  @media (min-width:64rem){
-    .about__grid{
-      grid-template-columns:repeat(4,1fr);
+  @media (min-width: 64rem) {
+    .about__grid {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 </style>

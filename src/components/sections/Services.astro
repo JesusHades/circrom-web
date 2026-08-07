@@ -3,11 +3,25 @@ import Container from "../common/Container.astro";
 import SectionTitle from "../common/SectionTitle.astro";
 import Card from "../ui/Card.astro";
 
+import {
+  Building2,
+  PaintRoller,
+  ClipboardCheck,
+  Compass,
+} from "lucide-astro";
+
 import { services } from "../../data/services";
+
+const serviceIcons = [
+  Building2,
+  PaintRoller,
+  ClipboardCheck,
+  Compass,
+];
 ---
 
 <section class="services section" id="servicios">
-  <Container>
+  <Container class="container--wide">
     <SectionTitle
       eyebrow="Nuestros servicios"
       title="Soluciones integrales para cada proyecto"
@@ -16,21 +30,29 @@ import { services } from "../../data/services";
 
     <div class="services__grid">
       {
-        services.map((service) => (
-          <Card hover class="services__card">
-            <div class="services__icon" aria-hidden="true">
-              <span></span>
-            </div>
+        services.map((service, index) => {
+          const Icon = serviceIcons[index];
 
-            <h3 class="services__title">
-              {service.title}
-            </h3>
+          return (
+            <Card hover class="services__card">
+              <div class="services__icon" aria-hidden="true">
+                <Icon
+                  size={30}
+                  strokeWidth={1.8}
+                  absoluteStrokeWidth
+                />
+              </div>
 
-            <p class="services__description">
-              {service.description}
-            </p>
-          </Card>
-        ))
+              <h3 class="services__title">
+                {service.title}
+              </h3>
+
+              <p class="services__description">
+                {service.description}
+              </p>
+            </Card>
+          );
+        })
       }
     </div>
   </Container>
@@ -43,7 +65,7 @@ import { services } from "../../data/services";
 
   .services__grid {
     display: grid;
-    gap: var(--space-5);
+    gap: var(--space-6);
 
     margin-top: var(--space-7);
   }
@@ -61,18 +83,10 @@ import { services } from "../../data/services";
 
     margin-bottom: var(--space-5);
 
-    background-color: var(--color-primary-light);
+    background-color: var(--color-secondary-light);
     border-radius: var(--radius-md);
-  }
 
-  .services__icon span {
-    display: block;
-
-    width: 1.25rem;
-    height: 1.25rem;
-
-    border: 2px solid var(--color-primary);
-    border-radius: var(--radius-sm);
+    color: var(--color-secondary);
   }
 
   .services__title {
