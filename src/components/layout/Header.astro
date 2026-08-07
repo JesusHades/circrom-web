@@ -8,7 +8,7 @@ import Button from "../ui/Button.astro";
   <Container class="header__container">
     <a class="header__logo" href="/" aria-label="CIRCROM - Inicio">
       <img
-        src="/images/logo/circrom-logo.jpeg"
+        src="/images/logo/circrom-logo.png"
         alt="CIRCROM"
         width="180"
         height="60"
@@ -51,18 +51,20 @@ import Button from "../ui/Button.astro";
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--space-5);
 
     min-height: 5rem;
   }
 
   .header__logo {
-    display: block;
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
   }
 
   .header__logo img {
     width: auto;
-    height: 2.5rem;
+    height: 3.25rem;
   }
 
   .header__actions {
@@ -75,8 +77,8 @@ import Button from "../ui/Button.astro";
     justify-content: center;
     gap: 0.3rem;
 
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.75rem;
+    height: 2.75rem;
 
     padding: 0;
 
@@ -89,7 +91,7 @@ import Button from "../ui/Button.astro";
   .header__menu span {
     display: block;
 
-    width: 1.5rem;
+    width: 1.6rem;
     height: 2px;
 
     margin-inline: auto;
@@ -101,11 +103,14 @@ import Button from "../ui/Button.astro";
 
   @media (min-width: 64rem) {
     .header__container {
-      min-height: 5.5rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+
+      min-height: 6rem;
     }
 
     .header__logo img {
-      height: 3rem;
+      height: 4rem;
     }
 
     .header__actions {
