@@ -1,0 +1,120 @@
+---
+import Container from "../common/Container.astro";
+import SectionTitle from "../common/SectionTitle.astro";
+import Card from "../ui/Card.astro";
+
+const services = [
+  {
+    title: "Construcción",
+    description:
+      "Desarrollamos proyectos residenciales, comerciales e industriales con altos estándares de calidad.",
+  },
+  {
+    title: "Remodelación",
+    description:
+      "Transformamos espacios existentes para crear ambientes funcionales, modernos y adaptados a cada necesidad.",
+  },
+  {
+    title: "Supervisión",
+    description:
+      "Supervisamos cada etapa del proyecto para asegurar calidad, tiempos y cumplimiento del presupuesto.",
+  },
+  {
+    title: "Diseño y planeación",
+    description:
+      "Planificamos cada proyecto cuidando los detalles necesarios para llevar las ideas a la realidad.",
+  },
+];
+---
+
+<section class="services section" id="servicios">
+  <Container>
+    <SectionTitle
+      eyebrow="Nuestros servicios"
+      title="Soluciones integrales para cada proyecto"
+      description="Ofrecemos servicios adaptados a las necesidades de cada cliente, desde la planeación hasta la ejecución."
+    />
+
+    <div class="services__grid">
+      {
+        services.map((service) => (
+          <Card hover class="services__card">
+            <div class="services__icon" aria-hidden="true">
+              <span></span>
+            </div>
+
+            <h3 class="services__title">
+              {service.title}
+            </h3>
+
+            <p class="services__description">
+              {service.description}
+            </p>
+          </Card>
+        ))
+      }
+    </div>
+  </Container>
+</section>
+
+<style>
+  .services {
+    background-color: var(--color-white);
+  }
+
+  .services__grid {
+    display: grid;
+    gap: var(--space-5);
+
+    margin-top: var(--space-7);
+  }
+
+  .services__card {
+    height: 100%;
+  }
+
+  .services__icon {
+    display: grid;
+    place-items: center;
+
+    width: 3.5rem;
+    height: 3.5rem;
+
+    margin-bottom: var(--space-5);
+
+    background-color: var(--color-primary-light);
+    border-radius: var(--radius-md);
+  }
+
+  .services__icon span {
+    display: block;
+
+    width: 1.25rem;
+    height: 1.25rem;
+
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+  }
+
+  .services__title {
+    margin-bottom: var(--space-3);
+
+    font-size: var(--font-size-lg);
+  }
+
+  .services__description {
+    color: var(--color-text-muted);
+  }
+
+  @media (min-width: 48rem) {
+    .services__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .services__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>
