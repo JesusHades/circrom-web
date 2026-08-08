@@ -1,165 +1,189 @@
 ---
+import "../../styles/components/contact.css";
+
 import Container from "../common/Container.astro";
 import SectionTitle from "../common/SectionTitle.astro";
+
+import {
+  Phone,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Send,
+} from "lucide-astro";
 ---
 
 <section class="contact section" id="contacto">
-  <Container>
+  <Container class="container--wide">
     <SectionTitle
       eyebrow="Contacto"
-      title="Conversemos sobre tu proyecto"
-      description="Si tienes un proyecto de construcción, remodelación o adecuación, podemos ayudarte a analizar tus necesidades y encontrar la mejor solución."
+      title="Hablemos de tu próximo proyecto"
+      description="Cuéntanos qué necesitas. Podemos ayudarte con proyectos de construcción, remodelación, supervisión y adecuación de espacios."
     />
 
     <div class="contact__grid">
       <div class="contact__info">
         <article class="contact__item">
-          <span class="contact__label">
-            Teléfono
-          </span>
+          <div class="contact__icon" aria-hidden="true">
+            <Phone size={24} strokeWidth={1.8} />
+          </div>
 
-          <a class="contact__value" href="tel:+52XXXXXXXXXX">
-            +52 XX XXXX XXXX
-          </a>
+          <div>
+            <span class="contact__label">Teléfono</span>
+
+            <a
+              class="contact__value"
+              href="tel:+52XXXXXXXXXX"
+            >
+              +52 XX XXXX XXXX
+            </a>
+          </div>
         </article>
 
         <article class="contact__item">
-          <span class="contact__label">
-            Correo
-          </span>
+          <div class="contact__icon" aria-hidden="true">
+            <Mail size={24} strokeWidth={1.8} />
+          </div>
 
-          <a
-            class="contact__value"
-            href="mailto:contacto@circrom.com"
-          >
-            contactocirc2025@gmail.com
-          </a>
+          <div>
+            <span class="contact__label">Correo</span>
+
+            <a
+              class="contact__value"
+              href="mailto:contactocirc2025@gmail.com"
+            >
+              contactocirc2025@gmail.com
+            </a>
+          </div>
         </article>
 
         <article class="contact__item">
-          <span class="contact__label">
-            Ubicación
-          </span>
+          <div class="contact__icon" aria-hidden="true">
+            <MapPin size={24} strokeWidth={1.8} />
+          </div>
 
-          <p class="contact__value">
-            Azcapotzalco, Ciudad de México, México
-          </p>
+          <div>
+            <span class="contact__label">Ubicación</span>
+
+            <p class="contact__value">
+              Azcapotzalco, Ciudad de México, México
+            </p>
+          </div>
         </article>
 
         <article class="contact__item">
-          <span class="contact__label">
-            WhatsApp
-          </span>
+          <div class="contact__icon" aria-hidden="true">
+            <MessageCircle size={24} strokeWidth={1.8} />
+          </div>
 
-          <a
-            class="contact__value contact__value--link"
-            href="https://wa.me/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Iniciar conversación →
-          </a>
+          <div>
+            <span class="contact__label">WhatsApp</span>
+
+            <a
+              class="contact__value contact__value--link"
+              href="https://wa.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Iniciar conversación
+            </a>
+          </div>
         </article>
       </div>
 
-      <div class="contact__form">
-        <div class="contact__placeholder">
-          <p>Formulario de contacto</p>
+      <form class="contact__form">
+        <div class="contact__field">
+          <label for="name">Nombre</label>
 
-          <span>
-            Proximamente.
-          </span>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Tu nombre"
+            autocomplete="name"
+          />
         </div>
-      </div>
+
+        <div class="contact__row">
+          <div class="contact__field">
+            <label for="email">Correo electrónico</label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="correo@ejemplo.com"
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="contact__field">
+            <label for="phone">Teléfono</label>
+
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="+52..."
+              autocomplete="tel"
+            />
+          </div>
+        </div>
+
+        <div class="contact__field">
+          <label for="project-type">
+            Tipo de proyecto
+          </label>
+
+          <select
+            id="project-type"
+            name="project-type"
+          >
+            <option value="">
+              Selecciona una opción
+            </option>
+
+            <option value="construccion">
+              Construcción
+            </option>
+
+            <option value="remodelacion">
+              Remodelación
+            </option>
+
+            <option value="supervision">
+              Supervisión
+            </option>
+
+            <option value="diseno-planeacion">
+              Diseño y planeación
+            </option>
+          </select>
+        </div>
+
+        <div class="contact__field">
+          <label for="message">
+            Cuéntanos sobre tu proyecto
+          </label>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            placeholder="Describe brevemente qué necesitas..."
+          ></textarea>
+        </div>
+
+        <button class="contact__submit" type="submit">
+          Enviar solicitud
+
+          <Send
+            size={18}
+            strokeWidth={1.8}
+            aria-hidden="true"
+          />
+        </button>
+      </form>
     </div>
   </Container>
 </section>
-
-<style>
-  .contact {
-    background-color: var(--color-white);
-  }
-
-  .contact__grid {
-    display: grid;
-    gap: var(--space-7);
-
-    margin-top: var(--space-7);
-  }
-
-  .contact__info {
-    display: grid;
-    gap: var(--space-5);
-  }
-
-  .contact__item {
-    padding-bottom: var(--space-5);
-
-    border-bottom: var(--border-width) solid var(--color-border);
-  }
-
-  .contact__label {
-    display: block;
-
-    margin-bottom: var(--space-2);
-
-    color: var(--color-text-muted);
-
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .contact__value {
-    color: var(--color-text);
-
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-semibold);
-  }
-
-  .contact__value--link {
-    color: var(--color-secondary);
-  }
-
-  .contact__form {
-    min-height: 24rem;
-  }
-
-  .contact__placeholder {
-    display: grid;
-    place-items: center;
-    align-content: center;
-
-    height: 100%;
-    min-height: 24rem;
-
-    padding: var(--space-6);
-
-    background-color: var(--color-background-alt);
-
-    border: var(--border-width) solid var(--color-border);
-    border-radius: var(--radius-lg);
-
-    text-align: center;
-  }
-
-  .contact__placeholder p {
-    margin-bottom: var(--space-2);
-
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-semibold);
-  }
-
-  .contact__placeholder span {
-    color: var(--color-text-muted);
-  }
-
-  @media (min-width: 64rem) {
-    .contact__grid {
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: var(--space-8);
-    }
-  }
-</style>

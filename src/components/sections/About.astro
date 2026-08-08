@@ -1,4 +1,6 @@
 ---
+import "../../styles/components/about.css";
+
 import Container from "../common/Container.astro";
 import SectionTitle from "../common/SectionTitle.astro";
 import Card from "../ui/Card.astro";
@@ -57,57 +59,3 @@ const featureIcons = [
     </div>
   </Container>
 </section>
-
-<style>
-  .about {
-    background-color: var(--color-white);
-  }
-
-  .about__grid {
-    display: grid;
-    gap: var(--space-6);
-
-    margin-top: var(--space-7);
-  }
-
-  .about__card {
-    height: 100%;
-  }
-
-  .about__icon {
-    display: grid;
-    place-items: center;
-
-    width: 3.5rem;
-    height: 3.5rem;
-
-    margin-bottom: var(--space-5);
-
-    background-color: var(--color-secondary-light);
-    border-radius: var(--radius-md);
-
-    color: var(--color-secondary);
-  }
-
-  .about__title {
-    margin-bottom: var(--space-3);
-
-    font-size: var(--font-size-lg);
-  }
-
-  .about__description {
-    color: var(--color-text-muted);
-  }
-
-  @media (min-width: 48rem) {
-    .about__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 64rem) {
-    .about__grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-</style>

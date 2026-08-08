@@ -1,4 +1,6 @@
 ---
+import "../../styles/components/projects.css";
+
 import Container from "../common/Container.astro";
 import SectionTitle from "../common/SectionTitle.astro";
 import Badge from "../ui/Badge.astro";
@@ -46,86 +48,3 @@ import { projects } from "../../data/projects";
     </div>
   </Container>
 </section>
-
-<style>
-  .projects__grid {
-    display: grid;
-    gap: var(--space-6);
-
-    margin-top: var(--space-7);
-  }
-
-  .project-card {
-    overflow: hidden;
-
-    background-color: var(--color-white);
-
-    border: var(--border-width) solid var(--color-border);
-    border-radius: var(--radius-lg);
-
-    transition:
-      transform var(--transition-normal),
-      box-shadow var(--transition-normal);
-  }
-
-  .project-card:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: var(--shadow-md);
-  }
-
-  .project-card__image {
-    display: grid;
-    place-items: center;
-
-    aspect-ratio: 4 / 3;
-
-    background-color: var(--color-gray-200);
-    color: var(--color-text-muted);
-  }
-
-  .project-card__content {
-    padding: var(--space-5);
-  }
-
-  .project-card__title {
-    margin-top: var(--space-4);
-
-    font-size: var(--font-size-xl);
-  }
-
-  .project-card__type {
-    margin-top: var(--space-2);
-
-    color: var(--color-text-muted);
-  }
-
-  .project-card__link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-
-    margin-top: var(--space-5);
-
-    color: var(--color-primary);
-
-    font-weight: var(--font-weight-semibold);
-
-    transition: gap var(--transition-fast);
-  }
-
-  .project-card__link:hover {
-    gap: var(--space-3);
-  }
-
-  @media (min-width: 48rem) {
-    .projects__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 64rem) {
-    .projects__grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-</style>
