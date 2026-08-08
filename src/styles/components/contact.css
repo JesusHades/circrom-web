@@ -37,10 +37,10 @@
     width: 3rem;
     height: 3rem;
 
-    background-color: var(--color-primary-light);
+    background-color: var(--color-secondary-light);
     border-radius: var(--radius-md);
 
-    color: var(--color-primary);
+    color: var(--color-secondary);
   }
 
   .contact__label {
