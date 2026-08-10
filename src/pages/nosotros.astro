@@ -1,0 +1,268 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/common/Container.astro";
+import Button from "../components/ui/Button.astro";
+
+import "../styles/pages/nosotros.css";
+
+import {
+  Target,
+  Eye,
+  ShieldCheck,
+  Users,
+  Clock3,
+  Leaf,
+} from "lucide-astro";
+
+const values = [
+  {
+    title: "Calidad",
+    description:
+      "Trabajamos con atención al detalle y altos estándares en cada etapa del proyecto.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Trabajo en equipo",
+    description:
+      "Colaboramos con especialistas y clientes para alcanzar soluciones eficientes.",
+    icon: Users,
+  },
+  {
+    title: "Compromiso",
+    description:
+      "Cumplimos con los objetivos establecidos cuidando tiempos, alcance y calidad.",
+    icon: Clock3,
+  },
+  {
+    title: "Responsabilidad",
+    description:
+      "Buscamos soluciones responsables con el entorno y con una visión de largo plazo.",
+    icon: Leaf,
+  },
+];
+---
+
+<Layout
+  title="Nosotros | CIRCROM"
+  description="Conoce más sobre CIRCROM, nuestra forma de trabajar, misión, visión y compromiso con cada proyecto."
+>
+  <main>
+    <!-- Hero -->
+    <section class="about-page__hero">
+      <Container class="container--wide">
+        <div class="about-page__hero-grid">
+          <div class="about-page__hero-content">
+            <p class="about-page__eyebrow">
+              Nosotros
+            </p>
+
+            <h1 class="about-page__hero-title">
+              Construimos espacios. Construimos confianza.
+            </h1>
+
+            <p class="about-page__hero-description">
+              En CIRCROM desarrollamos soluciones integrales en construcción,
+              remodelación, supervisión y planeación, trabajando con compromiso,
+              calidad y atención a cada detalle.
+            </p>
+          </div>
+
+          <div class="about-page__hero-visual">
+            <div class="about-page__image-placeholder">
+              <span>Fotografía de CIRCROM</span>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Quiénes somos -->
+    <section class="about-page__intro section">
+      <Container class="container--wide">
+        <div class="about-page__intro-grid">
+          <div>
+            <p class="about-page__eyebrow">
+              Quiénes somos
+            </p>
+
+            <h2 class="about-page__section-title">
+              Soluciones construidas alrededor de cada proyecto
+            </h2>
+          </div>
+
+          <div class="about-page__intro-copy">
+            <p>
+              CIRCROM es una empresa enfocada en el desarrollo de proyectos de
+              construcción y remodelación, ofreciendo soluciones adaptadas a las
+              necesidades de cada cliente.
+            </p>
+
+            <p>
+              Nuestro trabajo integra planeación, ejecución y supervisión para
+              desarrollar espacios funcionales, confiables y de calidad.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Misión y visión -->
+    <section class="about-page__purpose section">
+      <Container class="container--wide">
+        <div class="about-page__purpose-grid">
+          <article class="about-page__purpose-card">
+            <div class="about-page__purpose-icon">
+              <Target
+                size={30}
+                strokeWidth={1.8}
+                aria-hidden="true"
+              />
+            </div>
+
+            <p class="about-page__eyebrow">
+              Misión
+            </p>
+
+            <h2 class="about-page__purpose-title">
+              Construir soluciones que generen valor
+            </h2>
+
+            <p class="about-page__purpose-description">
+              Texto provisional. Aquí colocaremos la misión oficial de CIRCROM
+              una vez que tengamos la información definitiva de la empresa.
+            </p>
+          </article>
+
+          <article class="about-page__purpose-card">
+            <div class="about-page__purpose-icon">
+              <Eye
+                size={30}
+                strokeWidth={1.8}
+                aria-hidden="true"
+              />
+            </div>
+
+            <p class="about-page__eyebrow">
+              Visión
+            </p>
+
+            <h2 class="about-page__purpose-title">
+              Seguir creciendo a través de proyectos de calidad
+            </h2>
+
+            <p class="about-page__purpose-description">
+              Texto provisional. Aquí incorporaremos la visión oficial de
+              CIRCROM para reflejar sus objetivos y dirección a futuro.
+            </p>
+          </article>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Dirección general -->
+    <section class="about-page__leadership section">
+      <Container class="container--wide">
+        <div class="about-page__leadership-grid">
+          <div class="about-page__portrait-placeholder">
+            <span>Fotografía del director</span>
+          </div>
+
+          <div class="about-page__leadership-content">
+            <p class="about-page__eyebrow">
+              Dirección general
+            </p>
+
+            <h2 class="about-page__section-title">
+              Liderazgo con experiencia y compromiso
+            </h2>
+
+            <div class="about-page__director">
+              <h3>
+                Nombre del Director
+              </h3>
+
+              <p class="about-page__director-role">
+                Director General
+              </p>
+            </div>
+
+            <p class="about-page__leadership-description">
+              En este espacio podemos presentar brevemente la trayectoria del
+              director general, su experiencia en el sector y la visión con la
+              que lidera los proyectos de CIRCROM.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Valores -->
+    <section class="about-page__values section">
+      <Container class="container--wide">
+        <div class="about-page__values-heading">
+          <p class="about-page__eyebrow">
+            Nuestros valores
+          </p>
+
+          <h2 class="about-page__section-title">
+            Principios que guían nuestro trabajo
+          </h2>
+        </div>
+
+        <div class="about-page__values-grid">
+          {
+            values.map((value) => {
+              const Icon = value.icon;
+
+              return (
+                <article class="about-page__value-card">
+                  <div class="about-page__value-icon">
+                    <Icon
+                      size={28}
+                      strokeWidth={1.8}
+                      absoluteStrokeWidth
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <h3>
+                    {value.title}
+                  </h3>
+
+                  <p>
+                    {value.description}
+                  </p>
+                </article>
+              );
+            })
+          }
+        </div>
+      </Container>
+    </section>
+
+    <!-- CTA -->
+    <section class="about-page__cta section">
+      <Container class="container--wide">
+        <div class="about-page__cta-content">
+          <div>
+            <p class="about-page__eyebrow">
+              ¿Tienes un proyecto?
+            </p>
+
+            <h2 class="about-page__section-title">
+              Hablemos de tu próximo proyecto
+            </h2>
+
+            <p>
+              Cuéntanos qué necesitas y conozcamos cómo CIRCROM puede ayudarte.
+            </p>
+          </div>
+
+          <Button href="/#contacto" size="lg">
+            Contactar a CIRCROM
+          </Button>
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>
