@@ -3,8 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import Container from "../components/common/Container.astro";
 import Button from "../components/ui/Button.astro";
 
-import "../styles/pages/nosotros.css";
-
 import {
   Target,
   Eye,
@@ -14,32 +12,16 @@ import {
   Leaf,
 } from "lucide-astro";
 
-const values = [
-  {
-    title: "Calidad",
-    description:
-      "Trabajamos con atención al detalle y altos estándares en cada etapa del proyecto.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Trabajo en equipo",
-    description:
-      "Colaboramos con especialistas y clientes para alcanzar soluciones eficientes.",
-    icon: Users,
-  },
-  {
-    title: "Compromiso",
-    description:
-      "Cumplimos con los objetivos establecidos cuidando tiempos, alcance y calidad.",
-    icon: Clock3,
-  },
-  {
-    title: "Responsabilidad",
-    description:
-      "Buscamos soluciones responsables con el entorno y con una visión de largo plazo.",
-    icon: Leaf,
-  },
-];
+import { companyValues } from "../data/company";
+
+import "../styles/pages/nosotros.css";
+
+const valueIcons = {
+  shield: ShieldCheck,
+  users: Users,
+  clock: Clock3,
+  leaf: Leaf,
+};
 ---
 
 <Layout
@@ -67,12 +49,15 @@ const values = [
             </p>
           </div>
 
-          <div class="about-page__hero-visual">
-            <div class="about-page__image-placeholder">
-              <span>Fotografía de CIRCROM</span>
+            <div class="about-page__hero-visual">
+              <img
+              class="about-page__hero-image"
+              src="/images/about/cir-temp.jpg"
+              alt="Equipo y proyectos de CIRCROM"
+              loading="eager"
+              />
             </div>
           </div>
-        </div>
       </Container>
     </section>
 
@@ -128,8 +113,7 @@ const values = [
             </h2>
 
             <p class="about-page__purpose-description">
-              Texto provisional. Aquí colocaremos la misión oficial de CIRCROM
-              una vez que tengamos la información definitiva de la empresa.
+              Texto provisional.
             </p>
           </article>
 
@@ -151,8 +135,7 @@ const values = [
             </h2>
 
             <p class="about-page__purpose-description">
-              Texto provisional. Aquí incorporaremos la visión oficial de
-              CIRCROM para reflejar sus objetivos y dirección a futuro.
+              Texto provisional.
             </p>
           </article>
         </div>
@@ -163,9 +146,14 @@ const values = [
     <section class="about-page__leadership section">
       <Container class="container--wide">
         <div class="about-page__leadership-grid">
-          <div class="about-page__portrait-placeholder">
-            <span>Fotografía del director</span>
-          </div>
+            <div class="about-page__portrait">
+                <img
+                class="about-page__portrait-image"
+                src="/images/about/arqui-prueba.png"
+                alt="Director General de CIRCROM"
+                loading="lazy"
+                />
+            </div>
 
           <div class="about-page__leadership-content">
             <p class="about-page__eyebrow">
@@ -178,7 +166,7 @@ const values = [
 
             <div class="about-page__director">
               <h3>
-                Nombre del Director
+                Luis Guzmán
               </h3>
 
               <p class="about-page__director-role">
@@ -187,9 +175,7 @@ const values = [
             </div>
 
             <p class="about-page__leadership-description">
-              En este espacio podemos presentar brevemente la trayectoria del
-              director general, su experiencia en el sector y la visión con la
-              que lidera los proyectos de CIRCROM.
+              *trayectoria / presentacion arqui*
             </p>
           </div>
         </div>
@@ -211,17 +197,20 @@ const values = [
 
         <div class="about-page__values-grid">
           {
-            values.map((value) => {
-              const Icon = value.icon;
+            companyValues.map((value) => {
+              const Icon =
+                valueIcons[value.icon as keyof typeof valueIcons];
 
               return (
                 <article class="about-page__value-card">
-                  <div class="about-page__value-icon">
+                  <div
+                    class="about-page__value-icon"
+                    aria-hidden="true"
+                  >
                     <Icon
                       size={28}
                       strokeWidth={1.8}
                       absoluteStrokeWidth
-                      aria-hidden="true"
                     />
                   </div>
 
@@ -253,7 +242,7 @@ const values = [
               Hablemos de tu próximo proyecto
             </h2>
 
-            <p>
+            <p class="about-page__cta-description">
               Cuéntanos qué necesitas y conozcamos cómo CIRCROM puede ayudarte.
             </p>
           </div>
