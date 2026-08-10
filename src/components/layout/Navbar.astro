@@ -10,12 +10,18 @@ const navLinks = [
 ];
 ---
 
-<nav class="navbar" aria-label="Navegación principal">
+<nav
+  class="navbar navbar--desktop"
+  aria-label="Navegación principal"
+>
   <ul class="navbar__list">
     {
       navLinks.map((link) => (
         <li>
-          <a class="navbar__link" href={link.href}>
+          <a
+            class="navbar__link"
+            href={link.href}
+          >
             {link.label}
           </a>
         </li>
@@ -24,3 +30,23 @@ const navLinks = [
   </ul>
 </nav>
 
+<nav
+  class="navbar navbar--mobile"
+  id="mobile-navigation"
+  aria-label="Navegación móvil"
+>
+  <ul class="navbar__list navbar__list--mobile">
+    {
+      navLinks.map((link) => (
+        <li>
+          <a
+            class="navbar__link navbar__link--mobile"
+            href={link.href}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

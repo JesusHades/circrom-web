@@ -1,55 +1,160 @@
-  .navbar {
+/* ========================================
+   Desktop navbar
+======================================== */
+
+.navbar--desktop {
+  display: none;
+}
+
+.navbar__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: var(--space-6);
+}
+
+.navbar__link {
+  position: relative;
+
+  color: var(--color-text);
+
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+
+  transition: color var(--transition-fast);
+}
+
+.navbar__link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -0.5rem;
+
+  width: 100%;
+  height: 2px;
+
+  background-color: var(--color-secondary-dark);
+
+  transform: scaleX(0);
+  transform-origin: right;
+
+  transition: transform var(--transition-normal);
+}
+
+.navbar__link:hover {
+  color: var(--color-secondary-dark);
+}
+
+.navbar__link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ========================================
+   Mobile navbar
+======================================== */
+
+.navbar--mobile {
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+
+  max-height: 0;
+
+  overflow: hidden;
+
+  background-color: var(--color-white);
+
+  border-top: 0 solid var(--color-border);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    max-height var(--transition-normal),
+    opacity var(--transition-normal),
+    visibility var(--transition-normal),
+    border-width var(--transition-normal);
+}
+
+.header.is-open .navbar--mobile {
+  max-height: 30rem;
+
+  border-top-width: var(--border-width);
+
+  opacity: 1;
+  visibility: visible;
+}
+
+.navbar__list--mobile {
+  display: grid;
+
+  width: min(
+    calc(100% - (var(--container-padding) * 2)),
+    var(--container-max-width)
+  );
+
+  margin-inline: auto;
+
+  gap: 0;
+
+  padding-block: var(--space-3);
+}
+
+.navbar__link--mobile {
+  display: block;
+
+  padding-block: var(--space-4);
+
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-heading);
+
+  border-bottom:
+    var(--border-width)
+    solid
+    var(--color-border);
+}
+
+/*
+ * En móvil no necesitamos la línea animada
+ * del navbar de escritorio.
+ */
+.navbar__link--mobile::after {
+  display: none;
+}
+
+.navbar__list--mobile li:last-child
+.navbar__link--mobile {
+  border-bottom: 0;
+}
+
+.navbar__link--mobile:hover {
+  color: var(--color-primary);
+}
+
+/* ========================================
+   Desktop breakpoint
+======================================== */
+
+@media (min-width: 64rem) {
+  .navbar--desktop {
+    display: block;
+  }
+
+  .navbar--desktop .navbar__link {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    font-family: var(--font-heading);
+  }
+
+  .navbar--mobile {
     display: none;
   }
-
-  .navbar__list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: var(--space-6);
-  }
-
-  .navbar__link {
-    position: relative;
-
-    color: var(--color-text);
-
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-
-    transition: color var(--transition-fast);
-  }
-
-  .navbar__link::after {
-    content: "";
-
-    position: absolute;
-    left: 0;
-    bottom: -0.5rem;
-
-    width: 100%;
-    height: 2px;
-
-    background-color: var(--color-secondary-dark);
-
-    transform: scaleX(0);
-    transform-origin: right;
-
-    transition: transform var(--transition-normal);
-  }
-
-  .navbar__link:hover {
-    color: var(--color-secondary-dark);
-  }
-
-  .navbar__link:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-
-  @media (min-width: 64rem) {
-    .navbar {
-      display: block;
-    }
-  }
+}
