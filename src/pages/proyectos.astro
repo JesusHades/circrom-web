@@ -3,6 +3,11 @@ import Layout from "../layouts/Layout.astro";
 import Container from "../components/common/Container.astro";
 import Button from "../components/ui/Button.astro";
 
+import {
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-astro";
+
 import { portfolioProjects } from "../data/portfolioProjects";
 
 import "../styles/pages/proyectos.css";
@@ -94,17 +99,83 @@ import "../styles/pages/proyectos.css";
                     )
                   }
 
-                  <div class="portfolio-project__gallery">
+                  <div
+                    class="portfolio-carousel"
+                    data-carousel
+                  >
+                    <div class="portfolio-carousel__viewport">
+                      {
+                        project.images.map((image, imageIndex) => (
+                          <figure
+                            class:list={[
+                              "portfolio-carousel__slide",
+                              {
+                                "is-active": imageIndex === 0,
+                              },
+                            ]}
+                            data-carousel-slide
+                          >
+                            <img
+                              src={image}
+                              alt={`${project.name} - fotografía ${imageIndex + 1}`}
+                              loading="lazy"
+                            />
+                          </figure>
+                        ))
+                      }
+
+                      {
+                        project.images.length > 1 && (
+                          <>
+                            <button
+                              class="portfolio-carousel__button portfolio-carousel__button--prev"
+                              type="button"
+                              data-carousel-prev
+                              aria-label={`Ver fotografía anterior de ${project.name}`}
+                            >
+                              <ChevronLeft
+                                size={28}
+                                strokeWidth={1.8}
+                                aria-hidden="true"
+                              />
+                            </button>
+
+                            <button
+                              class="portfolio-carousel__button portfolio-carousel__button--next"
+                              type="button"
+                              data-carousel-next
+                              aria-label={`Ver siguiente fotografía de ${project.name}`}
+                            >
+                              <ChevronRight
+                                size={28}
+                                strokeWidth={1.8}
+                                aria-hidden="true"
+                              />
+                            </button>
+                          </>
+                        )
+                      }
+                    </div>
+
                     {
-                      project.images.map((image, imageIndex) => (
-                        <figure class="portfolio-project__figure">
-                          <img
-                            src={image}
-                            alt={`${project.name} - fotografía ${imageIndex + 1}`}
-                            loading="lazy"
-                          />
-                        </figure>
-                      ))
+                      project.images.length > 1 && (
+                        <div
+                          class="portfolio-carousel__counter"
+                          aria-live="polite"
+                        >
+                          <span data-carousel-current>
+                            1
+                          </span>
+
+                          <span aria-hidden="true">
+                            /
+                          </span>
+
+                          <span>
+                            {project.images.length}
+                          </span>
+                        </div>
+                      )
                     }
                   </div>
                 </div>
@@ -140,4 +211,8 @@ import "../styles/pages/proyectos.css";
       </Container>
     </section>
   </main>
+
+  <script>
+    import "../scripts/projectCarousel.js";
+  </script>
 </Layout>
