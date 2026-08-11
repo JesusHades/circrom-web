@@ -5,11 +5,7 @@ import Container from "../common/Container.astro";
 import SectionTitle from "../common/SectionTitle.astro";
 import Badge from "../ui/Badge.astro";
 
-import { projects } from "../../data/projects";
-
-const featuredProjects = projects
-  .filter((project) => project.featured)
-  .slice(0, 3);
+import { featuredProjects } from "../../data/featuredProjects";
 ---
 
 <section
@@ -30,7 +26,7 @@ const featuredProjects = projects
             <a
               class="project-card__image"
               href="/proyectos"
-              aria-label={`Ver proyectos de CIRCROM`}
+              aria-label="Conocer los proyectos de CIRCROM"
             >
               <img
                 src={project.image}
