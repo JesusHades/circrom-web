@@ -6,10 +6,17 @@ import SectionTitle from "../common/SectionTitle.astro";
 import Badge from "../ui/Badge.astro";
 
 import { projects } from "../../data/projects";
+
+const featuredProjects = projects
+  .filter((project) => project.featured)
+  .slice(0, 3);
 ---
 
-<section class="projects section section--alternate" id="proyectos">
-  <Container>
+<section
+  class="projects section section--alternate"
+  id="proyectos"
+>
+  <Container class="container--wide">
     <SectionTitle
       eyebrow="Proyectos destacados"
       title="Hacemos realidad cada visión"
@@ -18,11 +25,19 @@ import { projects } from "../../data/projects";
 
     <div class="projects__grid">
       {
-        projects.map((project) => (
+        featuredProjects.map((project) => (
           <article class="project-card">
-            <div class="project-card__image">
-              <span>Imagen del proyecto</span>
-            </div>
+            <a
+              class="project-card__image"
+              href="/proyectos"
+              aria-label={`Ver proyectos de CIRCROM`}
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                loading="lazy"
+              />
+            </a>
 
             <div class="project-card__content">
               <Badge variant="secondary">
@@ -37,7 +52,10 @@ import { projects } from "../../data/projects";
                 {project.type}
               </p>
 
-              <a class="project-card__link" href="#">
+              <a
+                class="project-card__link"
+                href="/proyectos"
+              >
                 Ver proyectos
                 <span aria-hidden="true">→</span>
               </a>
@@ -45,6 +63,16 @@ import { projects } from "../../data/projects";
           </article>
         ))
       }
+    </div>
+
+    <div class="projects__more">
+      <a
+        href="/proyectos"
+        class="projects__more-link"
+      >
+        Conoce todos nuestros proyectos
+        <span aria-hidden="true">→</span>
+      </a>
     </div>
   </Container>
 </section>
