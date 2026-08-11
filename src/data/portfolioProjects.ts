@@ -40,6 +40,8 @@ export const portfolioProjects: PortfolioProject[] = [
       "/images/portfolio/obra02/01.jpg",
       "/images/portfolio/obra02/02.jpg",
       "/images/portfolio/obra02/03.jpg",
+      "/images/portfolio/obra02/04.jpg",
+      "/images/portfolio/obra02/05.jpg",
     ],
   },
 
@@ -57,6 +59,7 @@ export const portfolioProjects: PortfolioProject[] = [
       "/images/portfolio/obra03/01.jpg",
       "/images/portfolio/obra03/02.jpg",
       "/images/portfolio/obra03/03.jpg",
+      "/images/portfolio/obra03/04.jpg",
     ],
   },
 ];

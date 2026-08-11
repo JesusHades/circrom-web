@@ -107,7 +107,7 @@
 }
 
 .portfolio-project__number {
-  color: var(--color-primary);
+  color: var(--color-secondary);
 
   font-family: var(--font-heading);
   font-size: var(--font-size-sm);
@@ -117,7 +117,7 @@
 .portfolio-project__name {
   margin: 0;
 
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   line-height: 1.1;
 }
@@ -129,7 +129,7 @@
   width: 2.75rem;
   height: 2.75rem;
 
-  color: var(--color-primary);
+  color: var(--color-secondary);
 
   font-size: 2rem;
   font-weight: 300;
