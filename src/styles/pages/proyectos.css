@@ -1,0 +1,344 @@
+/* ========================================
+   PORTFOLIO PAGE
+======================================== */
+
+
+/* ========================================
+   Shared
+======================================== */
+
+.portfolio-page__eyebrow {
+  margin-bottom: var(--space-3);
+
+  color: var(--color-primary);
+
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   Hero
+======================================== */
+
+.portfolio-page__hero {
+  padding-block:
+    var(--space-9)
+    var(--space-8);
+
+  background-color: var(--color-background);
+}
+
+.portfolio-page__hero-content {
+  max-width: 48rem;
+}
+
+.portfolio-page__hero-title {
+  max-width: 44rem;
+
+  margin-bottom: var(--space-5);
+
+  font-family: var(--font-heading);
+  font-size: clamp(2.75rem, 6vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.portfolio-page__hero-description {
+  max-width: 42rem;
+
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   Project list
+======================================== */
+
+.portfolio-page__projects {
+  background-color: var(--color-white);
+}
+
+.portfolio-page__list {
+  border-top:
+    var(--border-width)
+    solid
+    var(--color-border);
+}
+
+
+/* ========================================
+   Project item
+======================================== */
+
+.portfolio-project {
+  border-bottom:
+    var(--border-width)
+    solid
+    var(--color-border);
+}
+
+.portfolio-project__summary {
+  display: grid;
+  grid-template-columns:
+    auto
+    1fr
+    auto;
+  align-items: center;
+
+  gap: var(--space-5);
+
+  padding-block: var(--space-6);
+
+  cursor: pointer;
+
+  list-style: none;
+}
+
+.portfolio-project__summary::-webkit-details-marker {
+  display: none;
+}
+
+.portfolio-project__number {
+  color: var(--color-primary);
+
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.portfolio-project__name {
+  margin: 0;
+
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.1;
+}
+
+.portfolio-project__toggle {
+  display: grid;
+  place-items: center;
+
+  width: 2.75rem;
+  height: 2.75rem;
+
+  color: var(--color-primary);
+
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+
+  transition: transform var(--transition-normal);
+}
+
+.portfolio-project[open]
+.portfolio-project__toggle {
+  transform: rotate(45deg);
+}
+
+
+/* ========================================
+   Expanded content
+======================================== */
+
+.portfolio-project__content {
+  padding-bottom: var(--space-8);
+}
+
+.portfolio-project__info {
+  display: grid;
+
+  gap: var(--space-6);
+
+  margin-bottom: var(--space-7);
+
+  padding-left: calc(
+    2rem + var(--space-5)
+  );
+}
+
+.portfolio-project__description {
+  max-width: 44rem;
+
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+}
+
+.portfolio-project__meta {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap:
+    var(--space-6)
+    var(--space-9);
+}
+
+.portfolio-project__meta div {
+  min-width: 10rem;
+}
+
+.portfolio-project__meta dt {
+  margin-bottom: var(--space-2);
+
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.portfolio-project__meta dd {
+  margin: 0;
+
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-medium);
+}
+
+
+/* ========================================
+   Temporary gallery
+======================================== */
+
+.portfolio-project__gallery {
+  display: grid;
+
+  gap: var(--space-4);
+
+  padding-left: calc(
+    2rem + var(--space-5)
+  );
+}
+
+.portfolio-project__figure {
+  margin: 0;
+
+  overflow: hidden;
+
+  border-radius: var(--radius-lg);
+}
+
+.portfolio-project__figure img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  aspect-ratio: 16 / 10;
+
+  object-fit: cover;
+}
+
+
+/* ========================================
+   CTA
+======================================== */
+
+.portfolio-page__cta {
+  background-color: var(--color-background);
+}
+
+.portfolio-page__cta-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: var(--space-6);
+}
+
+.portfolio-page__cta-title {
+  max-width: 38rem;
+
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.05;
+}
+
+.portfolio-page__cta-description {
+  max-width: 36rem;
+
+  margin-top: var(--space-4);
+
+  color: var(--color-text-muted);
+
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   Tablet
+======================================== */
+
+@media (min-width: 48rem) {
+  .portfolio-project__gallery {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .portfolio-page__cta-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+
+/* ========================================
+   Desktop
+======================================== */
+
+@media (min-width: 64rem) {
+  .portfolio-page__hero {
+    padding-block:
+      var(--space-10)
+      var(--space-9);
+  }
+
+  .portfolio-project__summary {
+    padding-block: var(--space-7);
+  }
+
+  .portfolio-project__content {
+    padding-bottom: var(--space-9);
+  }
+
+  .portfolio-project__info,
+  .portfolio-project__gallery {
+    padding-left: calc(
+      3rem + var(--space-6)
+    );
+  }
+}
+
+
+/* ========================================
+   Mobile
+======================================== */
+
+@media (max-width: 47.99rem) {
+  .portfolio-project__summary {
+    grid-template-columns:
+      auto
+      minmax(0, 1fr)
+      auto;
+
+    gap: var(--space-3);
+  }
+
+  .portfolio-project__info,
+  .portfolio-project__gallery {
+    padding-left: 0;
+  }
+
+  .portfolio-project__description {
+    font-size: var(--font-size-base);
+  }
+}
