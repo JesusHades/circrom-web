@@ -336,6 +336,118 @@
   font-weight: var(--font-weight-medium);
 }
 
+/* ========================================
+   Brands
+======================================== */
+
+.portfolio-page__brands {
+  background-color: var(--color-white);
+}
+
+.portfolio-page__brands-header {
+  max-width: 44rem;
+
+  margin-bottom: var(--space-6);
+}
+
+.portfolio-page__brands-title {
+  max-width: 38rem;
+
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.portfolio-page__brands-description {
+  max-width: 42rem;
+
+  margin-top: var(--space-4);
+
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   Brands grid
+======================================== */
+
+.portfolio-page__brands-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap:
+    var(--space-5)
+    var(--space-4);
+}
+
+.portfolio-page__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 7rem;
+
+  padding: var(--space-4);
+}
+
+.portfolio-page__brand img {
+  display: block;
+
+  width: auto;
+  height: auto;
+
+  max-width: 10rem;
+  max-height: 4.5rem;
+
+  object-fit: contain;
+}
+
+
+/* ========================================
+   Brands tablet
+======================================== */
+
+@media (min-width: 48rem) {
+  .portfolio-page__brands-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    gap:
+      var(--space-6)
+      var(--space-5);
+  }
+
+  .portfolio-page__brand {
+    min-height: 8rem;
+  }
+
+  .portfolio-page__brand img {
+    max-width: 11rem;
+    max-height: 5rem;
+  }
+}
+
+
+/* ========================================
+   Brands desktop
+======================================== */
+
+@media (min-width: 64rem) {
+  .portfolio-page__brand {
+    min-height: 9rem;
+  }
+
+  .portfolio-page__brand img {
+    max-width: 12rem;
+    max-height: 5.5rem;
+  }
+}
 
 /* ========================================
    CTA
@@ -457,5 +569,18 @@
 
   .portfolio-carousel__button--next {
     right: var(--space-3);
+  }
+
+    .portfolio-page__brands {
+    padding-bottom: var(--space-8);
+  }
+
+  .portfolio-page__brands-grid {
+    row-gap: var(--space-6);
+  }
+
+  .portfolio-page__brand {
+    min-height: 6.5rem;
+    padding-inline: var(--space-2);
   }
 }
