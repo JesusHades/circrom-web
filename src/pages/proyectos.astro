@@ -1,0 +1,143 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/common/Container.astro";
+import Button from "../components/ui/Button.astro";
+
+import { portfolioProjects } from "../data/portfolioProjects";
+
+import "../styles/pages/proyectos.css";
+---
+
+<Layout
+  title="Proyectos | CIRCROM"
+  description="Conoce algunos de los proyectos desarrollados por CIRCROM y descubre nuestro trabajo a través de cada obra."
+>
+  <main>
+    <!-- Hero -->
+    <section class="portfolio-page__hero">
+      <Container class="container--wide">
+        <div class="portfolio-page__hero-content">
+          <p class="portfolio-page__eyebrow">
+            Proyectos
+          </p>
+
+          <h1 class="portfolio-page__hero-title">
+            Obras que hablan por nuestro trabajo
+          </h1>
+
+          <p class="portfolio-page__hero-description">
+            Conoce algunos de los proyectos desarrollados por CIRCROM y
+            descubre los detalles detrás de cada obra.
+          </p>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Lista de proyectos -->
+    <section class="portfolio-page__projects section">
+      <Container class="container--wide">
+        <div class="portfolio-page__list">
+          {
+            portfolioProjects.map((project, index) => (
+              <details class="portfolio-project">
+                <summary class="portfolio-project__summary">
+                  <span class="portfolio-project__number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <h2 class="portfolio-project__name">
+                    {project.name}
+                  </h2>
+
+                  <span
+                    class="portfolio-project__toggle"
+                    aria-hidden="true"
+                  >
+                    +
+                  </span>
+                </summary>
+
+                <div class="portfolio-project__content">
+                  {
+                    (
+                      project.description ||
+                      project.location ||
+                      project.year
+                    ) && (
+                      <div class="portfolio-project__info">
+                        {project.description && (
+                          <p class="portfolio-project__description">
+                            {project.description}
+                          </p>
+                        )}
+
+                        {
+                          (project.location || project.year) && (
+                            <dl class="portfolio-project__meta">
+                              {project.location && (
+                                <div>
+                                  <dt>Ubicación</dt>
+                                  <dd>{project.location}</dd>
+                                </div>
+                              )}
+
+                              {project.year && (
+                                <div>
+                                  <dt>Año</dt>
+                                  <dd>{project.year}</dd>
+                                </div>
+                              )}
+                            </dl>
+                          )
+                        }
+                      </div>
+                    )
+                  }
+
+                  <div class="portfolio-project__gallery">
+                    {
+                      project.images.map((image, imageIndex) => (
+                        <figure class="portfolio-project__figure">
+                          <img
+                            src={image}
+                            alt={`${project.name} - fotografía ${imageIndex + 1}`}
+                            loading="lazy"
+                          />
+                        </figure>
+                      ))
+                    }
+                  </div>
+                </div>
+              </details>
+            ))
+          }
+        </div>
+      </Container>
+    </section>
+
+    <!-- CTA -->
+    <section class="portfolio-page__cta section">
+      <Container class="container--wide">
+        <div class="portfolio-page__cta-content">
+          <div>
+            <p class="portfolio-page__eyebrow">
+              ¿Tienes un proyecto?
+            </p>
+
+            <h2 class="portfolio-page__cta-title">
+              Hablemos de tu próximo proyecto
+            </h2>
+
+            <p class="portfolio-page__cta-description">
+              Cuéntanos qué necesitas y conozcamos cómo CIRCROM puede ayudarte.
+            </p>
+          </div>
+
+          <Button href="/#contacto" size="lg">
+            Contactar a CIRCROM
+          </Button>
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>
