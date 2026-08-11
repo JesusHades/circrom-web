@@ -1,12 +1,3 @@
-/* ========================================
-   PORTFOLIO PAGE
-======================================== */
-
-
-/* ========================================
-   Shared
-======================================== */
-
 .portfolio-page__eyebrow {
   margin-bottom: var(--space-3);
 
@@ -28,7 +19,7 @@
 .portfolio-page__hero {
   padding-block:
     var(--space-9)
-    var(--space-8);
+    var(--space-6);
 
   background-color: var(--color-background);
 }
@@ -63,6 +54,9 @@
 ======================================== */
 
 .portfolio-page__projects {
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-7);
+
   background-color: var(--color-white);
 }
 
@@ -87,10 +81,12 @@
 
 .portfolio-project__summary {
   display: grid;
+
   grid-template-columns:
     auto
     1fr
     auto;
+
   align-items: center;
 
   gap: var(--space-5);
@@ -149,15 +145,15 @@
 ======================================== */
 
 .portfolio-project__content {
-  padding-bottom: var(--space-8);
+  padding-bottom: var(--space-7);
 }
 
 .portfolio-project__info {
   display: grid;
 
-  gap: var(--space-6);
+  gap: var(--space-5);
 
-  margin-bottom: var(--space-7);
+  margin-bottom: var(--space-5);
 
   padding-left: calc(
     2rem + var(--space-5)
@@ -192,6 +188,7 @@
   color: var(--color-text-muted);
 
   font-size: var(--font-size-sm);
+
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -205,36 +202,138 @@
 
 
 /* ========================================
-   Temporary gallery
+   Project carousel
 ======================================== */
 
-.portfolio-project__gallery {
-  display: grid;
-
-  gap: var(--space-4);
+.portfolio-carousel {
+  width: 100%;
+  max-width: 68rem;
 
   padding-left: calc(
     2rem + var(--space-5)
   );
 }
 
-.portfolio-project__figure {
-  margin: 0;
+.portfolio-carousel__viewport {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   overflow: hidden;
+
+  width: 100%;
+  min-height: clamp(24rem, 46vw, 36rem);
+
+  background-color: var(--color-background);
+
+  border:
+    var(--border-width)
+    solid
+    var(--color-border);
 
   border-radius: var(--radius-lg);
 }
 
-.portfolio-project__figure img {
-  display: block;
+.portfolio-carousel__slide {
+  display: none;
 
   width: 100%;
   height: 100%;
 
-  aspect-ratio: 16 / 10;
+  margin: 0;
+}
 
-  object-fit: cover;
+.portfolio-carousel__slide.is-active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-carousel__slide img {
+  display: block;
+
+  width: auto;
+  max-width: 100%;
+  height: clamp(24rem, 46vw, 36rem);
+
+  object-fit: contain;
+  object-position: center;
+
+  background-color: var(--color-background);
+}
+
+
+/* ========================================
+   Carousel buttons
+======================================== */
+
+.portfolio-carousel__button {
+  position: absolute;
+  top: 50%;
+
+  display: grid;
+  place-items: center;
+
+  width: 3rem;
+  height: 3rem;
+
+  padding: 0;
+
+  color: var(--color-text);
+
+  background-color: var(--color-white);
+
+  border:
+    var(--border-width)
+    solid
+    var(--color-border);
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transform: translateY(-50%);
+
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.portfolio-carousel__button:hover {
+  color: var(--color-white);
+
+  background-color: var(--color-secondary);
+}
+
+.portfolio-carousel__button--prev {
+  left: var(--space-4);
+}
+
+.portfolio-carousel__button--next {
+  right: var(--space-4);
+}
+
+
+/* ========================================
+   Carousel counter
+======================================== */
+
+.portfolio-carousel__counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: var(--space-2);
+
+  margin-top: var(--space-3);
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
 }
 
 
@@ -243,6 +342,8 @@
 ======================================== */
 
 .portfolio-page__cta {
+  padding-block: var(--space-8);
+
   background-color: var(--color-background);
 }
 
@@ -278,11 +379,6 @@
 ======================================== */
 
 @media (min-width: 48rem) {
-  .portfolio-project__gallery {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-  }
-
   .portfolio-page__cta-content {
     flex-direction: row;
     align-items: center;
@@ -298,8 +394,8 @@
 @media (min-width: 64rem) {
   .portfolio-page__hero {
     padding-block:
-      var(--space-10)
-      var(--space-9);
+      var(--space-9)
+      var(--space-7);
   }
 
   .portfolio-project__summary {
@@ -307,11 +403,11 @@
   }
 
   .portfolio-project__content {
-    padding-bottom: var(--space-9);
+    padding-bottom: var(--space-8);
   }
 
   .portfolio-project__info,
-  .portfolio-project__gallery {
+  .portfolio-carousel {
     padding-left: calc(
       3rem + var(--space-6)
     );
@@ -334,11 +430,32 @@
   }
 
   .portfolio-project__info,
-  .portfolio-project__gallery {
+  .portfolio-carousel {
     padding-left: 0;
   }
 
   .portfolio-project__description {
     font-size: var(--font-size-base);
+  }
+
+  .portfolio-carousel__viewport {
+    min-height: clamp(18rem, 75vw, 28rem);
+  }
+
+  .portfolio-carousel__slide img {
+    height: clamp(18rem, 75vw, 28rem);
+  }
+
+  .portfolio-carousel__button {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .portfolio-carousel__button--prev {
+    left: var(--space-3);
+  }
+
+  .portfolio-carousel__button--next {
+    right: var(--space-3);
   }
 }
