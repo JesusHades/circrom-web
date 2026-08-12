@@ -1,0 +1,108 @@
+/* ========================================
+   Keyframes
+======================================== */
+
+@keyframes about-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes about-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* ========================================
+   Hero entrance
+======================================== */
+
+.about-page__hero .about-page__eyebrow {
+    opacity: 0;
+
+    animation:
+        about-fade-up 0.5s ease-out 0.05s forwards;
+}
+
+.about-page__hero-title {
+    opacity: 0;
+
+    animation:
+        about-fade-up 0.65s ease-out 0.15s forwards;
+}
+
+.about-page__hero-description {
+    opacity: 0;
+
+    animation:
+        about-fade-up 0.65s ease-out 0.3s forwards;
+}
+
+.about-page__hero-visual {
+    opacity: 0;
+
+    animation:
+        about-fade-in 0.9s ease-out 0.35s forwards;
+}
+
+/* ========================================
+   Intro scroll reveal
+======================================== */
+
+.about-page__intro-heading,
+.about-page__intro-copy p {
+    opacity: 0;
+    transform: translateY(1rem);
+}
+
+.about-page__intro.is-visible .about-page__intro-heading {
+    animation:
+        about-fade-up 0.8s ease-out forwards;
+}
+
+.about-page__intro.is-visible .about-page__intro-copy p:nth-child(1) {
+    animation:
+        about-fade-up 0.8s ease-out 0.5s forwards;
+}
+
+.about-page__intro.is-visible .about-page__intro-copy p:nth-child(2) {
+    animation:
+        about-fade-up 0.8s ease-out 0.7s forwards;
+}
+
+
+/* ========================================
+   Reduced motion
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .about-page__hero .about-page__eyebrow,
+    .about-page__hero-title,
+    .about-page__hero-description,
+    .about-page__hero-visual {
+        opacity: 1;
+        transform: none;
+
+        animation: none;
+    }
+
+    .about-page__intro-heading,
+    .about-page__intro-copy p {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+}

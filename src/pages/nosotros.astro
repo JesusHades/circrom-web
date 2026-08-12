@@ -3,18 +3,12 @@ import Layout from "../layouts/Layout.astro";
 import Container from "../components/common/Container.astro";
 import Button from "../components/ui/Button.astro";
 
-import {
-  Target,
-  Eye,
-  ShieldCheck,
-  Users,
-  Clock3,
-  Leaf,
-} from "lucide-astro";
+import { Target, Eye, ShieldCheck, Users, Clock3, Leaf } from "lucide-astro";
 
 import { companyValues } from "../data/company";
 
 import "../styles/pages/nosotros.css";
+import "../styles/animations/nosotros-animations.css";
 
 const valueIcons = {
   shield: ShieldCheck,
@@ -34,9 +28,7 @@ const valueIcons = {
       <Container class="container--wide">
         <div class="about-page__hero-grid">
           <div class="about-page__hero-content">
-            <p class="about-page__eyebrow">
-              Nosotros
-            </p>
+            <p class="about-page__eyebrow">Nosotros</p>
 
             <h1 class="about-page__hero-title">
               Construimos espacios. Construimos confianza.
@@ -49,26 +41,24 @@ const valueIcons = {
             </p>
           </div>
 
-            <div class="about-page__hero-visual">
-              <img
+          <div class="about-page__hero-visual">
+            <img
               class="about-page__hero-image"
               src="/images/about/cir-temp.jpg"
               alt="Equipo y proyectos de CIRCROM"
               loading="eager"
-              />
-            </div>
+            />
           </div>
+        </div>
       </Container>
     </section>
 
     <!-- Quiénes somos -->
-    <section class="about-page__intro section">
+    <section class="about-page__intro section" data-reveal>
       <Container class="container--wide">
         <div class="about-page__intro-grid">
-          <div>
-            <p class="about-page__eyebrow">
-              Quiénes somos
-            </p>
+          <div class="about-page__intro-heading">
+            <p class="about-page__eyebrow">Quiénes somos</p>
 
             <h2 class="about-page__section-title">
               Soluciones construidas alrededor de cada proyecto
@@ -95,32 +85,26 @@ const valueIcons = {
     <section class="about-page__leadership section">
       <Container class="container--wide">
         <div class="about-page__leadership-grid">
-            <div class="about-page__portrait">
-                <img
-                class="about-page__portrait-image"
-                src="/images/about/arqui-prueba.png"
-                alt="Director General de CIRCROM"
-                loading="lazy"
-                />
-            </div>
+          <div class="about-page__portrait">
+            <img
+              class="about-page__portrait-image"
+              src="/images/about/arqui-prueba.png"
+              alt="Director General de CIRCROM"
+              loading="lazy"
+            />
+          </div>
 
           <div class="about-page__leadership-content">
-            <p class="about-page__eyebrow">
-              Dirección general
-            </p>
+            <p class="about-page__eyebrow">Dirección general</p>
 
             <h2 class="about-page__section-title">
               Liderazgo con experiencia y compromiso
             </h2>
 
             <div class="about-page__director">
-              <h3>
-                Luis Guzmán
-              </h3>
+              <h3>Luis Guzmán</h3>
 
-              <p class="about-page__director-role">
-                Director General
-              </p>
+              <p class="about-page__director-role">Director General</p>
             </div>
 
             <p class="about-page__leadership-description">
@@ -137,46 +121,30 @@ const valueIcons = {
         <div class="about-page__purpose-grid">
           <article class="about-page__purpose-card">
             <div class="about-page__purpose-icon">
-              <Target
-                size={30}
-                strokeWidth={1.8}
-                aria-hidden="true"
-              />
+              <Target size={30} strokeWidth={1.8} aria-hidden="true" />
             </div>
 
-            <p class="about-page__eyebrow">
-              Misión
-            </p>
+            <p class="about-page__eyebrow">Misión</p>
 
             <h2 class="about-page__purpose-title">
               Construir soluciones que generen valor
             </h2>
 
-            <p class="about-page__purpose-description">
-              Texto provisional.
-            </p>
+            <p class="about-page__purpose-description">Texto provisional.</p>
           </article>
 
           <article class="about-page__purpose-card">
             <div class="about-page__purpose-icon">
-              <Eye
-                size={30}
-                strokeWidth={1.8}
-                aria-hidden="true"
-              />
+              <Eye size={30} strokeWidth={1.8} aria-hidden="true" />
             </div>
 
-            <p class="about-page__eyebrow">
-              Visión
-            </p>
+            <p class="about-page__eyebrow">Visión</p>
 
             <h2 class="about-page__purpose-title">
               Seguir creciendo a través de proyectos de calidad
             </h2>
 
-            <p class="about-page__purpose-description">
-              Texto provisional.
-            </p>
+            <p class="about-page__purpose-description">Texto provisional.</p>
           </article>
         </div>
       </Container>
@@ -186,9 +154,7 @@ const valueIcons = {
     <section class="about-page__values section">
       <Container class="container--wide">
         <div class="about-page__values-heading">
-          <p class="about-page__eyebrow">
-            Nuestros valores
-          </p>
+          <p class="about-page__eyebrow">Nuestros valores</p>
 
           <h2 class="about-page__section-title">
             Principios que guían nuestro trabajo
@@ -198,29 +164,17 @@ const valueIcons = {
         <div class="about-page__values-grid">
           {
             companyValues.map((value) => {
-              const Icon =
-                valueIcons[value.icon as keyof typeof valueIcons];
+              const Icon = valueIcons[value.icon as keyof typeof valueIcons];
 
               return (
                 <article class="about-page__value-card">
-                  <div
-                    class="about-page__value-icon"
-                    aria-hidden="true"
-                  >
-                    <Icon
-                      size={28}
-                      strokeWidth={1.8}
-                      absoluteStrokeWidth
-                    />
+                  <div class="about-page__value-icon" aria-hidden="true">
+                    <Icon size={28} strokeWidth={1.8} absoluteStrokeWidth />
                   </div>
 
-                  <h3>
-                    {value.title}
-                  </h3>
+                  <h3>{value.title}</h3>
 
-                  <p>
-                    {value.description}
-                  </p>
+                  <p>{value.description}</p>
                 </article>
               );
             })
@@ -234,9 +188,7 @@ const valueIcons = {
       <Container class="container--wide">
         <div class="about-page__cta-content">
           <div>
-            <p class="about-page__eyebrow">
-              ¿Tienes un proyecto?
-            </p>
+            <p class="about-page__eyebrow">¿Tienes un proyecto?</p>
 
             <h2 class="about-page__section-title">
               Hablemos de tu próximo proyecto
@@ -247,11 +199,13 @@ const valueIcons = {
             </p>
           </div>
 
-          <Button href="/#contacto" size="lg">
-            Contactar a CIRCROM
-          </Button>
+          <Button href="/#contacto" size="lg"> Contactar a CIRCROM </Button>
         </div>
       </Container>
     </section>
   </main>
+
+  <script>
+    import "../scripts/scrollReveal.js";
+  </script>
 </Layout>
