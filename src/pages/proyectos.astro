@@ -3,15 +3,12 @@ import Layout from "../layouts/Layout.astro";
 import Container from "../components/common/Container.astro";
 import Button from "../components/ui/Button.astro";
 
-import {
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-astro";
+import { ChevronLeft, ChevronRight } from "lucide-astro";
 
 import { portfolioProjects } from "../data/portfolioProjects";
 
 import "../styles/pages/proyectos.css";
-import "../styles/animations/proyectos-animations.css"
+import "../styles/animations/proyectos-animations.css";
 ---
 
 <Layout
@@ -23,17 +20,15 @@ import "../styles/animations/proyectos-animations.css"
     <section class="portfolio-page__hero">
       <Container class="container--wide">
         <div class="portfolio-page__hero-content">
-          <p class="portfolio-page__eyebrow">
-            Proyectos
-          </p>
+          <p class="portfolio-page__eyebrow">Proyectos</p>
 
           <h1 class="portfolio-page__hero-title">
             Obras que hablan por nuestro trabajo
           </h1>
 
           <p class="portfolio-page__hero-description">
-            Conoce algunos de los proyectos desarrollados por CIRCROM y
-            descubre los detalles detrás de cada obra.
+            Conoce algunos de los proyectos desarrollados por CIRCROM y descubre
+            los detalles detrás de cada obra.
           </p>
         </div>
       </Container>
@@ -51,133 +46,107 @@ import "../styles/animations/proyectos-animations.css"
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
-                  <h2 class="portfolio-project__name">
-                    {project.name}
-                  </h2>
+                  <h2 class="portfolio-project__name">{project.name}</h2>
 
-                  <span
-                    class="portfolio-project__toggle"
-                    aria-hidden="true"
-                  >
+                  <span class="portfolio-project__toggle" aria-hidden="true">
                     +
                   </span>
                 </summary>
 
                 <div class="portfolio-project__content">
-                  {
-                    (
-                      project.description ||
-                      project.location ||
-                      project.year
-                    ) && (
-                      <div class="portfolio-project__info">
-                        {project.description && (
-                          <p class="portfolio-project__description">
-                            {project.description}
-                          </p>
-                        )}
+                  {(project.description ||
+                    project.location ||
+                    project.year) && (
+                    <div class="portfolio-project__info">
+                      {project.description && (
+                        <p class="portfolio-project__description">
+                          {project.description}
+                        </p>
+                      )}
 
-                        {
-                          (project.location || project.year) && (
-                            <dl class="portfolio-project__meta">
-                              {project.location && (
-                                <div>
-                                  <dt>Ubicación</dt>
-                                  <dd>{project.location}</dd>
-                                </div>
-                              )}
+                      {(project.location || project.year) && (
+                        <dl class="portfolio-project__meta">
+                          {project.location && (
+                            <div>
+                              <dt>Ubicación</dt>
+                              <dd>{project.location}</dd>
+                            </div>
+                          )}
 
-                              {project.year && (
-                                <div>
-                                  <dt>Año</dt>
-                                  <dd>{project.year}</dd>
-                                </div>
-                              )}
-                            </dl>
-                          )
-                        }
-                      </div>
-                    )
-                  }
+                          {project.year && (
+                            <div>
+                              <dt>Año</dt>
+                              <dd>{project.year}</dd>
+                            </div>
+                          )}
+                        </dl>
+                      )}
+                    </div>
+                  )}
 
-                  <div
-                    class="portfolio-carousel"
-                    data-carousel
-                  >
+                  <div class="portfolio-carousel" data-carousel>
                     <div class="portfolio-carousel__viewport">
-                      {
-                        project.images.map((image, imageIndex) => (
-                          <figure
-                            class:list={[
-                              "portfolio-carousel__slide",
-                              {
-                                "is-active": imageIndex === 0,
-                              },
-                            ]}
-                            data-carousel-slide
+                      {project.images.map((image, imageIndex) => (
+                        <figure
+                          class:list={[
+                            "portfolio-carousel__slide",
+                            {
+                              "is-active": imageIndex === 0,
+                            },
+                          ]}
+                          data-carousel-slide
+                        >
+                          <img
+                            src={image}
+                            alt={`${project.name} - fotografía ${imageIndex + 1}`}
+                            loading="lazy"
+                          />
+                        </figure>
+                      ))}
+
+                      {project.images.length > 1 && (
+                        <>
+                          <button
+                            class="portfolio-carousel__button portfolio-carousel__button--prev"
+                            type="button"
+                            data-carousel-prev
+                            aria-label={`Ver fotografía anterior de ${project.name}`}
                           >
-                            <img
-                              src={image}
-                              alt={`${project.name} - fotografía ${imageIndex + 1}`}
-                              loading="lazy"
+                            <ChevronLeft
+                              size={28}
+                              strokeWidth={1.8}
+                              aria-hidden="true"
                             />
-                          </figure>
-                        ))
-                      }
+                          </button>
 
-                      {
-                        project.images.length > 1 && (
-                          <>
-                            <button
-                              class="portfolio-carousel__button portfolio-carousel__button--prev"
-                              type="button"
-                              data-carousel-prev
-                              aria-label={`Ver fotografía anterior de ${project.name}`}
-                            >
-                              <ChevronLeft
-                                size={28}
-                                strokeWidth={1.8}
-                                aria-hidden="true"
-                              />
-                            </button>
-
-                            <button
-                              class="portfolio-carousel__button portfolio-carousel__button--next"
-                              type="button"
-                              data-carousel-next
-                              aria-label={`Ver siguiente fotografía de ${project.name}`}
-                            >
-                              <ChevronRight
-                                size={28}
-                                strokeWidth={1.8}
-                                aria-hidden="true"
-                              />
-                            </button>
-                          </>
-                        )
-                      }
+                          <button
+                            class="portfolio-carousel__button portfolio-carousel__button--next"
+                            type="button"
+                            data-carousel-next
+                            aria-label={`Ver siguiente fotografía de ${project.name}`}
+                          >
+                            <ChevronRight
+                              size={28}
+                              strokeWidth={1.8}
+                              aria-hidden="true"
+                            />
+                          </button>
+                        </>
+                      )}
                     </div>
 
-                    {
-                      project.images.length > 1 && (
-                        <div
-                          class="portfolio-carousel__counter"
-                          aria-live="polite"
-                        >
-                          <span data-carousel-current>
-                            1
-                          </span>
+                    {project.images.length > 1 && (
+                      <div
+                        class="portfolio-carousel__counter"
+                        aria-live="polite"
+                      >
+                        <span data-carousel-current>1</span>
 
-                          <span aria-hidden="true">
-                            /
-                          </span>
+                        <span aria-hidden="true">/</span>
 
-                          <span>
-                            {project.images.length}
-                          </span>
-                        </div>
-                      )
-                    }
+                        <span>{project.images.length}</span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </details>
@@ -187,21 +156,19 @@ import "../styles/animations/proyectos-animations.css"
       </Container>
     </section>
 
-        <!-- Marcas -->
+    <!-- Marcas -->
     <section class="portfolio-page__brands section" data-reveal>
       <Container class="container--wide">
         <div class="portfolio-page__brands-header">
-          <p class="portfolio-page__eyebrow">
-            Experiencia
-          </p>
+          <p class="portfolio-page__eyebrow">Experiencia</p>
 
           <h2 class="portfolio-page__brands-title">
             Marcas que han confiado en nuestro trabajo
           </h2>
 
           <p class="portfolio-page__brands-description">
-            Hemos colaborado en proyectos para algunas de las principales
-            marcas automotrices presentes en México.
+            Hemos colaborado en proyectos para algunas de las principales marcas
+            automotrices presentes en México.
           </p>
         </div>
 
@@ -215,11 +182,7 @@ import "../styles/animations/proyectos-animations.css"
           </div>
 
           <div class="portfolio-page__brand">
-            <img
-              src="/images/brands/toyota.png"
-              alt="Toyota"
-              loading="lazy"
-            />
+            <img src="/images/brands/toyota.png" alt="Toyota" loading="lazy" />
           </div>
 
           <div class="portfolio-page__brand">
@@ -231,27 +194,15 @@ import "../styles/animations/proyectos-animations.css"
           </div>
 
           <div class="portfolio-page__brand">
-            <img
-              src="/images/brands/byd.png"
-              alt="BYD"
-              loading="lazy"
-            />
+            <img src="/images/brands/byd.png" alt="BYD" loading="lazy" />
           </div>
 
           <div class="portfolio-page__brand">
-            <img
-              src="/images/brands/geely.png"
-              alt="Geely"
-              loading="lazy"
-            />
+            <img src="/images/brands/geely.png" alt="Geely" loading="lazy" />
           </div>
 
           <div class="portfolio-page__brand">
-            <img
-              src="/images/brands/kia.png"
-              alt="KIA"
-              loading="lazy"
-            />
+            <img src="/images/brands/kia.png" alt="KIA" loading="lazy" />
           </div>
 
           <div class="portfolio-page__brand">
@@ -263,11 +214,7 @@ import "../styles/animations/proyectos-animations.css"
           </div>
 
           <div class="portfolio-page__brand">
-            <img
-              src="/images/brands/nissan.png"
-              alt="Nissan"
-              loading="lazy"
-            />
+            <img src="/images/brands/nissan.png" alt="Nissan" loading="lazy" />
           </div>
 
           <div class="portfolio-page__brand">
@@ -282,13 +229,11 @@ import "../styles/animations/proyectos-animations.css"
     </section>
 
     <!-- CTA -->
-    <section class="portfolio-page__cta section">
+    <section class="portfolio-page__cta section" data-reveal>
       <Container class="container--wide">
         <div class="portfolio-page__cta-content">
-          <div>
-            <p class="portfolio-page__eyebrow">
-              ¿Tienes un proyecto?
-            </p>
+          <div class="portfolio-page__cta-text">
+            <p class="portfolio-page__eyebrow">¿Tienes un proyecto?</p>
 
             <h2 class="portfolio-page__cta-title">
               Hablemos de tu próximo proyecto
@@ -299,9 +244,7 @@ import "../styles/animations/proyectos-animations.css"
             </p>
           </div>
 
-          <Button href="/#contacto" size="lg">
-            Contactar a CIRCROM
-          </Button>
+          <Button href="/#contacto" size="lg"> Contactar a CIRCROM </Button>
         </div>
       </Container>
     </section>
