@@ -1,0 +1,101 @@
+/* ========================================
+   Keyframes
+======================================== */
+
+@keyframes home-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes home-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   Hero entrance
+======================================== */
+
+.hero__eyebrow {
+  opacity: 0;
+
+  animation:
+    home-fade-up
+    0.5s
+    ease-out
+    0.05s
+    forwards;
+}
+
+.hero__title {
+  opacity: 0;
+
+  animation:
+    home-fade-up
+    0.65s
+    ease-out
+    0.15s
+    forwards;
+}
+
+.hero__description {
+  opacity: 0;
+
+  animation:
+    home-fade-up
+    0.65s
+    ease-out
+    0.3s
+    forwards;
+}
+
+.hero__actions {
+  opacity: 0;
+
+  animation:
+    home-fade-up
+    0.65s
+    ease-out
+    0.45s
+    forwards;
+}
+
+.hero__visual {
+  opacity: 0;
+
+  animation:
+    home-fade-in
+    0.9s
+    ease-out
+    0.35s
+    forwards;
+}
+
+/* ========================================
+   Reduced motion
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__eyebrow,
+  .hero__title,
+  .hero__description,
+  .hero__actions,
+  .hero__visual {
+    opacity: 1;
+    transform: none;
+
+    animation: none;
+  }
+}
