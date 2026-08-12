@@ -11,13 +11,16 @@ import { featuredProjects } from "../../data/featuredProjects";
 <section
   class="projects section section--alternate"
   id="proyectos"
+  data-reveal
 >
   <Container class="container--wide">
-    <SectionTitle
-      eyebrow="Proyectos destacados"
-      title="Hacemos realidad cada visión"
-      description="Una selección de proyectos desarrollados por CIRCROM con atención al detalle, funcionalidad y calidad."
-    />
+    <div class="projects__heading">
+      <SectionTitle
+        eyebrow="Proyectos destacados"
+        title="Hacemos realidad cada visión"
+        description="Una selección de proyectos desarrollados por CIRCROM con atención al detalle, funcionalidad y calidad."
+      />
+    </div>
 
     <div class="projects__grid">
       {
