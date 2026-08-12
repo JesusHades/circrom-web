@@ -1,0 +1,201 @@
+/* ========================================
+   Keyframes
+======================================== */
+
+@keyframes portfolio-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ========================================
+   Hero entrance
+======================================== */
+
+.portfolio-page__hero .portfolio-page__eyebrow {
+  opacity: 0;
+
+  animation:
+    portfolio-fade-up
+    0.5s
+    ease-out
+    0.05s
+    forwards;
+}
+
+.portfolio-page__hero-title {
+  opacity: 0;
+
+  animation:
+    portfolio-fade-up
+    0.65s
+    ease-out
+    0.15s
+    forwards;
+}
+
+.portfolio-page__hero-description {
+  opacity: 0;
+
+  animation:
+    portfolio-fade-up
+    0.65s
+    ease-out
+    0.3s
+    forwards;
+}
+
+
+/* ========================================
+   Project bands entrance
+======================================== */
+
+.portfolio-project {
+  opacity: 0;
+
+  animation:
+    portfolio-fade-up
+    0.55s
+    ease-out
+    forwards;
+}
+
+.portfolio-project:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+.portfolio-project:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.portfolio-project:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.portfolio-project:nth-child(4) {
+  animation-delay: 0.7s;
+}
+
+
+/* ========================================
+   Project bands hover
+======================================== */
+
+.portfolio-project__summary {
+  transition:
+    background-color var(--transition-fast);
+}
+
+.portfolio-project__name {
+  transition:
+    transform var(--transition-fast);
+}
+
+.portfolio-project__number {
+  transition:
+    transform var(--transition-fast);
+}
+
+@media (hover: hover) {
+  .portfolio-project__summary:hover {
+    background-color: var(--color-background);
+  }
+
+  .portfolio-project__summary:hover
+  .portfolio-project__name {
+    transform: translateX(0.35rem);
+  }
+
+  .portfolio-project__summary:hover
+  .portfolio-project__number {
+    transform: translateX(0.15rem);
+  }
+}
+
+
+/* ========================================
+   Project accordion
+======================================== */
+
+.portfolio-project__content {
+  transform-origin: top;
+
+  opacity: 0;
+  transform: translateY(0.75rem);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.portfolio-project.is-opening
+.portfolio-project__content,
+.portfolio-project.is-open
+.portfolio-project__content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio-project.is-closing
+.portfolio-project__content {
+  opacity: 0;
+  transform: translateY(0.75rem);
+}
+
+/* ========================================
+   Carousel transitions
+======================================== */
+
+.portfolio-carousel__slide {
+  opacity: 0;
+
+  transition:
+    opacity 0.35s ease;
+}
+
+.portfolio-carousel__slide.is-active {
+  opacity: 1;
+}
+
+.portfolio-carousel__slide.is-leaving {
+  opacity: 0;
+}
+
+/* ========================================
+   Reduced motion
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-page__hero .portfolio-page__eyebrow,
+  .portfolio-page__hero-title,
+  .portfolio-page__hero-description,
+  .portfolio-project {
+    opacity: 1;
+
+    animation: none;
+  }
+
+  .portfolio-project__summary,
+  .portfolio-project__name,
+  .portfolio-project__number {
+    transition: none;
+  }
+
+  .portfolio-project__content {
+    opacity: 1;
+    transform: none;
+
+    transition: none;
+  }
+
+  .portfolio-carousel__slide {
+    transition: none;
+  }
+}
