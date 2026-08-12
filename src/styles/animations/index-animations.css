@@ -138,6 +138,74 @@
 }
 
 /* ========================================
+   About scroll reveal
+======================================== */
+
+.about__heading,
+.about__card,
+.about__more {
+  opacity: 0;
+  transform: translateY(1rem);
+}
+
+
+/* Heading */
+
+.about.is-visible
+.about__heading {
+  animation:
+    home-fade-up
+    0.8s
+    ease-out
+    forwards;
+}
+
+
+/* Cards */
+
+.about.is-visible
+.about__card {
+  animation:
+    home-fade-up
+    0.8s
+    ease-out
+    forwards;
+}
+
+.about.is-visible
+.about__card:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.about.is-visible
+.about__card:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.about.is-visible
+.about__card:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+.about.is-visible
+.about__card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+
+/* More link */
+
+.about.is-visible
+.about__more {
+  animation:
+    home-fade-up
+    0.7s
+    ease-out
+    1s
+    forwards;
+}
+
+/* ========================================
    Reduced motion
 ======================================== */
 

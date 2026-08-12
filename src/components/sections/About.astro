@@ -22,13 +22,20 @@ const featureIcons = [
 ];
 ---
 
-<section class="about section" id="nosotros">
+<section
+  class="about section"
+  id="nosotros"
+  data-reveal
+>
   <Container class="container--wide">
-    <SectionTitle
-      eyebrow="¿Por qué elegirnos?"
-      title="Construimos confianza desde el primer día"
-      description="Nuestro compromiso es ofrecer soluciones confiables, eficientes y de alta calidad en cada proyecto."
-    />
+
+    <div class="about__heading">
+      <SectionTitle
+        eyebrow="¿Por qué elegirnos?"
+        title="Construimos confianza desde el primer día"
+        description="Nuestro compromiso es ofrecer soluciones confiables, eficientes y de alta calidad en cada proyecto."
+      />
+    </div>
 
     <div class="about__grid">
       {
@@ -60,7 +67,7 @@ const featureIcons = [
 
     <div class="about__more">
       <a href="/nosotros" class="about__link">
-        Conoce más sobre CIRCROM
+          Conoce más sobre CIRCROM
         <span aria-hidden="true">→</span>
       </a>
     </div>
