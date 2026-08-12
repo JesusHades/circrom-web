@@ -13,13 +13,20 @@ import {
 } from "lucide-astro";
 ---
 
-<section class="contact section" id="contacto">
+<section
+  class="contact section"
+  id="contacto"
+  data-reveal
+>
   <Container class="container--wide">
-    <SectionTitle
-      eyebrow="Contacto"
-      title="Hablemos de tu próximo proyecto"
-      description="Cuéntanos qué necesitas. Podemos ayudarte con proyectos de construcción, remodelación, supervisión y adecuación de espacios."
-    />
+
+    <div class="contact__heading">
+      <SectionTitle
+        eyebrow="Contacto"
+        title="Hablemos de tu próximo proyecto"
+        description="Cuéntanos qué necesitas. Podemos ayudarte con proyectos de construcción, remodelación, supervisión y adecuación de espacios."
+      />
+    </div>
 
     <div class="contact__grid">
       <div class="contact__info">
