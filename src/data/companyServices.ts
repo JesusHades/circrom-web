@@ -72,6 +72,7 @@ export const companyServices = [
       "/images/services/estructuras-acero/01.webp",
       "/images/services/estructuras-acero/02.webp",
       "/images/services/estructuras-acero/03.webp",
+      "/images/services/estructuras-acero/04.webp",
     ],
   },
 
@@ -91,6 +92,27 @@ export const companyServices = [
       "/images/services/instalaciones-electricas/01.webp",
       "/images/services/instalaciones-electricas/02.webp",
       "/images/services/instalaciones-electricas/03.webp",
+      "/images/services/instalaciones-electricas/04.webp",
+    ],
+  },
+
+  {
+    title: "Aluminio y cancelería",
+    description:
+      "Fabricamos e instalamos soluciones en aluminio y cristal para divisiones, accesos y cerramientos interiores y exteriores.",
+    items: [
+      "Cancelería de aluminio",
+      "Puertas y accesos",
+      "Divisiones de cristal",
+      "Mamparas",
+      "Cerramientos",
+      "Elementos de aluminio y vidrio",
+    ],
+    images: [
+      "/images/services/aluminio-canceleria/01.webp",
+      "/images/services/aluminio-canceleria/02.webp",
+      "/images/services/aluminio-canceleria/03.webp",
+      "/images/services/aluminio-canceleria/04.webp",
     ],
   },
 
