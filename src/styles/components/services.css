@@ -1,51 +1,92 @@
-  .services {
-    background-color: var(--color-white);
-  }
+.services {
+  background-color: var(--color-white);
+}
 
+.services__grid {
+  display: grid;
+  gap: var(--space-6);
+
+  margin-top: var(--space-7);
+}
+
+.services__card {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+}
+
+.services__icon {
+  display: grid;
+  place-items: center;
+
+  width: 3.5rem;
+  height: 3.5rem;
+
+  margin-bottom: var(--space-5);
+
+  background-color: var(--color-secondary-light);
+  border-radius: var(--radius-md);
+
+  color: var(--color-secondary);
+}
+
+.services__title {
+  margin-bottom: var(--space-3);
+
+  font-size: var(--font-size-lg);
+}
+
+.services__description {
+  color: var(--color-text-muted);
+
+  line-height: 1.6;
+}
+
+.services__more {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: var(--space-6);
+}
+
+.services__more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  color: var(--color-primary);
+
+  font-weight: var(--font-weight-semibold);
+
+  text-decoration: none;
+
+  transition:
+    gap var(--transition-fast);
+}
+
+.services__more-link:hover {
+  gap: var(--space-3);
+}
+
+
+/* ========================================
+   Tablet
+======================================== */
+
+@media (min-width: 48rem) {
   .services__grid {
-    display: grid;
-    gap: var(--space-6);
-
-    margin-top: var(--space-7);
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .services__card {
-    height: 100%;
+
+/* ========================================
+   Desktop
+======================================== */
+
+@media (min-width: 64rem) {
+  .services__grid {
+    grid-template-columns: repeat(4, 1fr);
   }
-
-  .services__icon {
-    display: grid;
-    place-items: center;
-
-    width: 3.5rem;
-    height: 3.5rem;
-
-    margin-bottom: var(--space-5);
-
-    background-color: var(--color-secondary-light);
-    border-radius: var(--radius-md);
-
-    color: var(--color-secondary);
-  }
-
-  .services__title {
-    margin-bottom: var(--space-3);
-
-    font-size: var(--font-size-lg);
-  }
-
-  .services__description {
-    color: var(--color-text-muted);
-  }
-
-  @media (min-width: 48rem) {
-    .services__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 64rem) {
-    .services__grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
+}

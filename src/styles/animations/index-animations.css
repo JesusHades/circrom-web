@@ -32,55 +32,35 @@
   opacity: 0;
 
   animation:
-    home-fade-up
-    0.5s
-    ease-out
-    0.05s
-    forwards;
+    home-fade-up 0.5s ease-out 0.05s forwards;
 }
 
 .hero__title {
   opacity: 0;
 
   animation:
-    home-fade-up
-    0.65s
-    ease-out
-    0.15s
-    forwards;
+    home-fade-up 0.65s ease-out 0.15s forwards;
 }
 
 .hero__description {
   opacity: 0;
 
   animation:
-    home-fade-up
-    0.65s
-    ease-out
-    0.3s
-    forwards;
+    home-fade-up 0.65s ease-out 0.3s forwards;
 }
 
 .hero__actions {
   opacity: 0;
 
   animation:
-    home-fade-up
-    0.65s
-    ease-out
-    0.45s
-    forwards;
+    home-fade-up 0.65s ease-out 0.45s forwards;
 }
 
 .hero__visual {
   opacity: 0;
 
   animation:
-    home-fade-in
-    0.9s
-    ease-out
-    0.35s
-    forwards;
+    home-fade-in 0.9s ease-out 0.35s forwards;
 }
 
 /* ========================================
@@ -94,47 +74,31 @@
   transform: translateY(1rem);
 }
 
-.projects.is-visible
-.projects__heading {
+.projects.is-visible .projects__heading {
   animation:
-    home-fade-up
-    0.8s
-    ease-out
-    forwards;
+    home-fade-up 0.8s ease-out forwards;
 }
 
-.projects.is-visible
-.project-card {
+.projects.is-visible .project-card {
   animation:
-    home-fade-up
-    0.8s
-    ease-out
-    forwards;
+    home-fade-up 0.8s ease-out forwards;
 }
 
-.projects.is-visible
-.project-card:nth-child(1) {
+.projects.is-visible .project-card:nth-child(1) {
   animation-delay: 0.5s;
 }
 
-.projects.is-visible
-.project-card:nth-child(2) {
+.projects.is-visible .project-card:nth-child(2) {
   animation-delay: 0.6s;
 }
 
-.projects.is-visible
-.project-card:nth-child(3) {
+.projects.is-visible .project-card:nth-child(3) {
   animation-delay: 0.7s;
 }
 
-.projects.is-visible
-.projects__more {
+.projects.is-visible .projects__more {
   animation:
-    home-fade-up
-    0.7s
-    ease-out
-    0.9s
-    forwards;
+    home-fade-up 0.7s ease-out 0.9s forwards;
 }
 
 /* ========================================
@@ -151,58 +115,41 @@
 
 /* Heading */
 
-.about.is-visible
-.about__heading {
+.about.is-visible .about__heading {
   animation:
-    home-fade-up
-    0.8s
-    ease-out
-    forwards;
+    home-fade-up 0.8s ease-out forwards;
 }
 
 
 /* Cards */
 
-.about.is-visible
-.about__card {
+.about.is-visible .about__card {
   animation:
-    home-fade-up
-    0.8s
-    ease-out
-    forwards;
+    home-fade-up 0.8s ease-out forwards;
 }
 
-.about.is-visible
-.about__card:nth-child(1) {
+.about.is-visible .about__card:nth-child(1) {
   animation-delay: 0.5s;
 }
 
-.about.is-visible
-.about__card:nth-child(2) {
+.about.is-visible .about__card:nth-child(2) {
   animation-delay: 0.6s;
 }
 
-.about.is-visible
-.about__card:nth-child(3) {
+.about.is-visible .about__card:nth-child(3) {
   animation-delay: 0.7s;
 }
 
-.about.is-visible
-.about__card:nth-child(4) {
+.about.is-visible .about__card:nth-child(4) {
   animation-delay: 0.8s;
 }
 
 
 /* More link */
 
-.about.is-visible
-.about__more {
+.about.is-visible .about__more {
   animation:
-    home-fade-up
-    0.7s
-    ease-out
-    1s
-    forwards;
+    home-fade-up 0.7s ease-out 1s forwards;
 }
 
 /* ========================================
@@ -219,58 +166,92 @@
 
 /* Heading */
 
-.contact.is-visible
-.contact__heading {
+.contact.is-visible .contact__heading {
   animation:
-    home-fade-up
-    0.8s
-    ease-out
-    forwards;
+    home-fade-up 0.8s ease-out forwards;
 }
 
 
 /* Contact info */
 
-.contact.is-visible
-.contact__item {
+.contact.is-visible .contact__item {
   animation:
-    home-fade-up
-    0.8s
-    ease-out
-    forwards;
+    home-fade-up 0.8s ease-out forwards;
 }
 
-.contact.is-visible
-.contact__item:nth-child(1) {
+.contact.is-visible .contact__item:nth-child(1) {
   animation-delay: 0.5s;
 }
 
-.contact.is-visible
-.contact__item:nth-child(2) {
+.contact.is-visible .contact__item:nth-child(2) {
   animation-delay: 0.6s;
 }
 
-.contact.is-visible
-.contact__item:nth-child(3) {
+.contact.is-visible .contact__item:nth-child(3) {
   animation-delay: 0.7s;
 }
 
-.contact.is-visible
-.contact__item:nth-child(4) {
+.contact.is-visible .contact__item:nth-child(4) {
   animation-delay: 0.8s;
 }
 
 
 /* Form */
 
-.contact.is-visible
-.contact__form {
+.contact.is-visible .contact__form {
   animation:
-    home-fade-up
-    0.8s
-    ease-out
-    0.9s
-    forwards;
+    home-fade-up 0.8s ease-out 0.9s forwards;
+}
+
+/* ========================================
+   Services scroll reveal
+======================================== */
+
+.services__heading,
+.services__card,
+.services__more {
+  opacity: 0;
+  transform: translateY(1rem);
+}
+
+
+/* Heading */
+
+.services.is-visible .services__heading {
+  animation:
+    home-fade-up 0.8s ease-out forwards;
+}
+
+
+/* Cards */
+
+.services.is-visible .services__card {
+  animation:
+    home-fade-up 0.8s ease-out forwards;
+}
+
+.services.is-visible .services__card:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.services.is-visible .services__card:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.services.is-visible .services__card:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+.services.is-visible .services__card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+
+/* More link */
+
+.services.is-visible .services__more {
+  animation:
+    home-fade-up 0.7s ease-out 1s forwards;
 }
 
 /* ========================================
@@ -278,6 +259,7 @@
 ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
   .hero__eyebrow,
   .hero__title,
   .hero__description,
@@ -310,6 +292,15 @@
   .contact__heading,
   .contact__item,
   .contact__form {
+    opacity: 1;
+    transform: none;
+
+    animation: none;
+  }
+
+  .services__heading,
+  .services__card,
+  .services__more {
     opacity: 1;
     transform: none;
 

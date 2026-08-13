@@ -22,13 +22,20 @@ const serviceIcons = [
 ];
 ---
 
-<section class="services section" id="servicios">
+<section
+  class="services section"
+  id="servicios"
+  data-reveal
+>
   <Container class="container--wide">
-    <SectionTitle
-      eyebrow="Nuestros servicios"
-      title="Soluciones integrales para cada proyecto"
-      description="Ofrecemos servicios adaptados a las necesidades de cada cliente, desde la planeación hasta la ejecución."
-    />
+
+    <div class="services__heading">
+      <SectionTitle
+        eyebrow="Nuestros servicios"
+        title="Soluciones integrales para cada proyecto"
+        description="Ofrecemos servicios adaptados a las necesidades de cada cliente, desde la planeación hasta la ejecución."
+      />
+    </div>
 
     <div class="services__grid">
       {
@@ -37,7 +44,11 @@ const serviceIcons = [
 
           return (
             <Card hover class="services__card">
-              <div class="services__icon" aria-hidden="true">
+
+              <div
+                class="services__icon"
+                aria-hidden="true"
+              >
                 <Icon
                   size={30}
                   strokeWidth={1.8}
@@ -57,5 +68,16 @@ const serviceIcons = [
         })
       }
     </div>
+
+    <div class="services__more">
+      <a
+        href="/servicios"
+        class="services__more-link"
+      >
+        Conoce todos nuestros servicios
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
   </Container>
 </section>
