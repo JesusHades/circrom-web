@@ -7,6 +7,8 @@ const prefersReducedMotion =
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
+const transitionDuration = 900;
+
 services.forEach((service) => {
   const summary = service.querySelector(
     ".services-page__service-summary"
@@ -58,7 +60,24 @@ services.forEach((service) => {
       });
     });
 
-    const finishOpening = (event) => {
+    let finished = false;
+
+    const finishOpening = () => {
+      if (finished) {
+        return;
+      }
+
+      finished = true;
+
+      content.removeEventListener(
+        "transitionend",
+        handleTransitionEnd
+      );
+
+      isAnimating = false;
+    };
+
+    const handleTransitionEnd = (event) => {
       if (
         event.target !== content ||
         event.propertyName !== "opacity"
@@ -66,17 +85,17 @@ services.forEach((service) => {
         return;
       }
 
-      content.removeEventListener(
-        "transitionend",
-        finishOpening
-      );
-
-      isAnimating = false;
+      finishOpening();
     };
 
     content.addEventListener(
       "transitionend",
-      finishOpening
+      handleTransitionEnd
+    );
+
+    setTimeout(
+      finishOpening,
+      transitionDuration
     );
   };
 
@@ -102,17 +121,18 @@ services.forEach((service) => {
 
     service.classList.add("is-closing");
 
-    const finishClosing = (event) => {
-      if (
-        event.target !== content ||
-        event.propertyName !== "opacity"
-      ) {
+    let finished = false;
+
+    const finishClosing = () => {
+      if (finished) {
         return;
       }
 
+      finished = true;
+
       content.removeEventListener(
         "transitionend",
-        finishClosing
+        handleTransitionEnd
       );
 
       service.open = false;
@@ -124,9 +144,25 @@ services.forEach((service) => {
       isAnimating = false;
     };
 
+    const handleTransitionEnd = (event) => {
+      if (
+        event.target !== content ||
+        event.propertyName !== "opacity"
+      ) {
+        return;
+      }
+
+      finishClosing();
+    };
+
     content.addEventListener(
       "transitionend",
-      finishClosing
+      handleTransitionEnd
+    );
+
+    setTimeout(
+      finishClosing,
+      transitionDuration
     );
   };
 

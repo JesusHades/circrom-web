@@ -7,6 +7,8 @@ const prefersReducedMotion =
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
+const transitionDuration = 900;
+
 projects.forEach((project) => {
   const summary = project.querySelector(
     ".portfolio-project__summary"
@@ -37,27 +39,20 @@ projects.forEach((project) => {
 
     if (prefersReducedMotion) {
       project.open = true;
+
       resetClasses();
       project.classList.add("is-open");
+
       return;
     }
 
     isAnimating = true;
 
-    /*
-     * Primero abrimos el <details> para que
-     * el contenido exista visualmente.
-     */
     project.open = true;
 
     resetClasses();
     project.classList.add("is-opening");
 
-    /*
-     * Esperamos dos frames para garantizar
-     * que el navegador registre el estado
-     * inicial antes de activar la transición.
-     */
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         project.classList.add("is-open");
@@ -65,7 +60,24 @@ projects.forEach((project) => {
       });
     });
 
-    const finishOpening = (event) => {
+    let finished = false;
+
+    const finishOpening = () => {
+      if (finished) {
+        return;
+      }
+
+      finished = true;
+
+      content.removeEventListener(
+        "transitionend",
+        handleTransitionEnd
+      );
+
+      isAnimating = false;
+    };
+
+    const handleTransitionEnd = (event) => {
       if (
         event.target !== content ||
         event.propertyName !== "opacity"
@@ -73,17 +85,17 @@ projects.forEach((project) => {
         return;
       }
 
-      content.removeEventListener(
-        "transitionend",
-        finishOpening
-      );
-
-      isAnimating = false;
+      finishOpening();
     };
 
     content.addEventListener(
       "transitionend",
-      finishOpening
+      handleTransitionEnd
+    );
+
+    setTimeout(
+      finishOpening,
+      transitionDuration
     );
   };
 
@@ -94,7 +106,9 @@ projects.forEach((project) => {
 
     if (prefersReducedMotion) {
       project.open = false;
+
       resetClasses();
+
       return;
     }
 
@@ -107,23 +121,20 @@ projects.forEach((project) => {
 
     project.classList.add("is-closing");
 
-    const finishClosing = (event) => {
-      if (
-        event.target !== content ||
-        event.propertyName !== "opacity"
-      ) {
+    let finished = false;
+
+    const finishClosing = () => {
+      if (finished) {
         return;
       }
 
+      finished = true;
+
       content.removeEventListener(
         "transitionend",
-        finishClosing
+        handleTransitionEnd
       );
 
-      /*
-       * Cerramos el <details> solo cuando
-       * termina la transición de salida.
-       */
       project.open = false;
 
       project.classList.remove(
@@ -133,19 +144,38 @@ projects.forEach((project) => {
       isAnimating = false;
     };
 
+    const handleTransitionEnd = (event) => {
+      if (
+        event.target !== content ||
+        event.propertyName !== "opacity"
+      ) {
+        return;
+      }
+
+      finishClosing();
+    };
+
     content.addEventListener(
       "transitionend",
-      finishClosing
+      handleTransitionEnd
+    );
+
+    setTimeout(
+      finishClosing,
+      transitionDuration
     );
   };
 
-  summary.addEventListener("click", (event) => {
-    event.preventDefault();
+  summary.addEventListener(
+    "click",
+    (event) => {
+      event.preventDefault();
 
-    if (project.open) {
-      closeProject();
-    } else {
-      openProject();
+      if (project.open) {
+        closeProject();
+      } else {
+        openProject();
+      }
     }
-  });
+  );
 });
