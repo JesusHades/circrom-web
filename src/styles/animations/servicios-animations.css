@@ -1,0 +1,66 @@
+/* ========================================
+   Service accordion
+======================================== */
+
+.services-page__service-content {
+  transform-origin: top;
+
+  opacity: 0;
+  transform: translateY(0.75rem);
+
+  transition:
+    opacity 0.85s ease,
+    transform 0.85s ease;
+}
+
+.services-page__service.is-opening
+.services-page__service-content,
+.services-page__service.is-open
+.services-page__service-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.services-page__service.is-closing
+.services-page__service-content {
+  opacity: 0;
+  transform: translateY(0.75rem);
+}
+
+
+/* ========================================
+   Carousel fade
+======================================== */
+
+.service-carousel__slide {
+  opacity: 0;
+
+  transition:
+    opacity 0.8s ease;
+}
+
+.service-carousel__slide.is-active {
+  opacity: 1;
+}
+
+.service-carousel__slide.is-leaving {
+  opacity: 0;
+}
+
+
+/* ========================================
+   Reduced motion
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .services-page__service-content {
+    opacity: 1;
+    transform: none;
+
+    transition: none;
+  }
+
+  .service-carousel__slide {
+    transition: none;
+  }
+}
