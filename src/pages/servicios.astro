@@ -6,6 +6,7 @@ import Button from "../components/ui/Button.astro";
 import { companyServices } from "../data/companyServices";
 
 import "../styles/pages/servicios.css";
+import "../styles/animations/servicios-animations.css";
 ---
 
 <Layout
@@ -259,8 +260,9 @@ import "../styles/pages/servicios.css";
   </main>
 
 
-  <script>
-    import "../scripts/serviceCarousel.js";
-  </script>
+<script>
+  import "../scripts/serviceCarousel.js";
+  import "../scripts/serviceAccordion.js";
+</script>
 
 </Layout>
