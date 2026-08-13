@@ -5,7 +5,7 @@ import Button from "../components/ui/Button.astro";
 
 import { companyServices } from "../data/companyServices";
 
-
+import "../styles/pages/servicios.css";
 ---
 
 <Layout
@@ -41,7 +41,7 @@ import { companyServices } from "../data/companyServices";
 
 
     <!-- ========================================
-         Services list
+         Services catalog
     ======================================== -->
 
     <section class="services-page__catalog section">
@@ -55,6 +55,7 @@ import { companyServices } from "../data/companyServices";
               return (
                 <details class="services-page__service">
 
+                  <!-- Service band -->
                   <summary class="services-page__service-summary">
 
                     <span class="services-page__service-number">
@@ -75,27 +76,131 @@ import { companyServices } from "../data/companyServices";
                   </summary>
 
 
+                  <!-- Expanded service -->
                   <div class="services-page__service-content">
 
-                    <p class="services-page__service-description">
-                      {service.description}
-                    </p>
+                    <!-- Information -->
+                    <div class="services-page__service-info">
 
+                      <p class="services-page__service-description">
+                        {service.description}
+                      </p>
+
+                      {
+                        service.items?.length > 0 && (
+                          <div class="services-page__service-details">
+
+                            <p class="services-page__service-details-label">
+                              Servicios relacionados
+                            </p>
+
+                            <ul class="services-page__service-items">
+                              {
+                                service.items.map((item) => (
+                                  <li>{item}</li>
+                                ))
+                              }
+                            </ul>
+
+                          </div>
+                        )
+                      }
+
+                    </div>
+
+
+                    <!-- Carousel -->
                     {
-                      service.items?.length > 0 && (
-                        <div class="services-page__service-details">
+                      service.images?.length > 0 && (
+                        <div
+                          class="service-carousel"
+                          data-service-carousel
+                        >
 
-                          <p class="services-page__service-details-label">
-                            Servicios relacionados
-                          </p>
+                          <div class="service-carousel__viewport">
 
-                          <ul class="services-page__service-items">
                             {
-                              service.items.map((item) => (
-                                <li>{item}</li>
+                              service.images.map((image, imageIndex) => (
+                                <figure
+                                  class:list={[
+                                    "service-carousel__slide",
+                                    {
+                                      "is-active":
+                                        imageIndex === 0,
+                                    },
+                                  ]}
+                                  data-service-carousel-slide
+                                  aria-hidden={
+                                    imageIndex === 0
+                                      ? "false"
+                                      : "true"
+                                  }
+                                >
+                                  <img
+                                    src={image}
+                                    alt={`${service.title} - imagen ${imageIndex + 1}`}
+                                    class="service-carousel__image"
+                                    loading="lazy"
+                                  />
+                                </figure>
                               ))
                             }
-                          </ul>
+
+
+                            {
+                              service.images.length > 1 && (
+                                <>
+                                  <button
+                                    class="
+                                      service-carousel__button
+                                      service-carousel__button--prev
+                                    "
+                                    type="button"
+                                    aria-label={`Imagen anterior de ${service.title}`}
+                                    data-service-carousel-prev
+                                  >
+                                    <span aria-hidden="true">
+                                      ‹
+                                    </span>
+                                  </button>
+
+                                  <button
+                                    class="
+                                      service-carousel__button
+                                      service-carousel__button--next
+                                    "
+                                    type="button"
+                                    aria-label={`Imagen siguiente de ${service.title}`}
+                                    data-service-carousel-next
+                                  >
+                                    <span aria-hidden="true">
+                                      ›
+                                    </span>
+                                  </button>
+                                </>
+                              )
+                            }
+
+                          </div>
+
+
+                          {
+                            service.images.length > 1 && (
+                              <p class="service-carousel__counter">
+                                <span data-service-carousel-current>
+                                  1
+                                </span>
+
+                                <span aria-hidden="true">
+                                  {" / "}
+                                </span>
+
+                                <span>
+                                  {service.images.length}
+                                </span>
+                              </p>
+                            )
+                          }
 
                         </div>
                       )
@@ -152,4 +257,10 @@ import { companyServices } from "../data/companyServices";
     </section>
 
   </main>
+
+
+  <script>
+    import "../scripts/serviceCarousel.js";
+  </script>
+
 </Layout>
