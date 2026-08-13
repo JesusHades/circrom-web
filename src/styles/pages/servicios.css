@@ -1,0 +1,590 @@
+/* ========================================
+   SERVICIOS PAGE
+======================================== */
+
+
+/* ========================================
+   Shared
+======================================== */
+
+.services-page__eyebrow {
+  margin-bottom: var(--space-3);
+
+  color: var(--color-primary);
+
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.services-page__section-title {
+  max-width: 40rem;
+
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.05;
+}
+
+
+/* ========================================
+   Hero
+======================================== */
+
+.services-page__hero {
+  padding-block:
+    var(--space-9)
+    var(--space-8);
+
+  background-color: var(--color-background);
+}
+
+.services-page__hero-content {
+  max-width: 46rem;
+}
+
+.services-page__hero-title {
+  max-width: 44rem;
+
+  margin-bottom: var(--space-5);
+
+  font-family: var(--font-heading);
+  font-size: clamp(2.75rem, 6vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.services-page__hero-description {
+  max-width: 42rem;
+
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   Catalog
+======================================== */
+
+.services-page__catalog {
+  background-color: var(--color-white);
+}
+
+.services-page__list {
+  border-top: 1px solid var(--color-border);
+}
+
+
+/* ========================================
+   Service band
+======================================== */
+
+.services-page__service {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.services-page__service-summary {
+  display: grid;
+  grid-template-columns:
+    auto
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+
+  gap: var(--space-4);
+
+  padding-block: var(--space-6);
+
+  cursor: pointer;
+
+  list-style: none;
+}
+
+.services-page__service-summary::-webkit-details-marker {
+  display: none;
+}
+
+.services-page__service-number {
+  min-width: 2rem;
+
+  color: var(--color-secondary);
+
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.services-page__service-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.1;
+}
+
+.services-page__service-toggle {
+  display: grid;
+  place-items: center;
+
+  width: 2.5rem;
+  height: 2.5rem;
+
+  color: var(--color-secondary);
+
+  font-size: 1.75rem;
+  line-height: 1;
+
+  transition:
+    transform var(--transition-fast);
+}
+
+.services-page__service[open]
+.services-page__service-toggle {
+  transform: rotate(45deg);
+}
+
+
+/* ========================================
+   Expanded content
+======================================== */
+
+.services-page__service-content {
+  padding:
+    var(--space-2)
+    0
+    var(--space-8);
+}
+
+.services-page__service-info {
+  display: grid;
+
+  gap: var(--space-6);
+
+  max-width: 48rem;
+
+  margin-left: calc(2rem + var(--space-4));
+  margin-bottom: var(--space-7);
+}
+
+.services-page__service-description {
+  max-width: 44rem;
+
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   Related services
+======================================== */
+
+.services-page__service-details {
+  display: grid;
+
+  gap: var(--space-4);
+}
+
+.services-page__service-details-label {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.services-page__service-items {
+  display: grid;
+
+  grid-template-columns:
+    repeat(1, minmax(0, 1fr));
+
+  gap:
+    var(--space-3)
+    var(--space-6);
+
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+}
+
+.services-page__service-items li {
+  position: relative;
+
+  padding-left: 1.1rem;
+
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.services-page__service-items li::before {
+  content: "";
+
+  position: absolute;
+  top: 0.7em;
+  left: 0;
+
+  width: 0.35rem;
+  height: 0.35rem;
+
+  background-color: var(--color-secondary);
+  border-radius: 50%;
+}
+
+
+/* ========================================
+   Carousel
+======================================== */
+
+.service-carousel {
+  width: 100%;
+  max-width: 64rem;
+
+  margin-inline: auto;
+}
+
+.service-carousel__viewport {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  width: 100%;
+  min-height: clamp(18rem, 48vw, 36rem);
+
+  overflow: hidden;
+
+  background-color: var(--color-background);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+
+/* ========================================
+   Slides
+======================================== */
+
+.service-carousel__slide {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+
+  pointer-events: none;
+}
+
+.service-carousel__slide.is-active {
+  pointer-events: auto;
+}
+
+.service-carousel__image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  background-color: var(--color-background);
+}
+
+
+/* ========================================
+   Carousel buttons
+======================================== */
+
+.service-carousel__button {
+  position: absolute;
+  top: 50%;
+
+  z-index: 2;
+
+  display: grid;
+  place-items: center;
+
+  width: 3rem;
+  height: 3rem;
+
+  padding: 0;
+
+  background-color: var(--color-white);
+
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+
+  color: var(--color-text);
+
+  cursor: pointer;
+
+  transform: translateY(-50%);
+
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.service-carousel__button:hover {
+  background-color: var(--color-secondary);
+
+  border-color: var(--color-secondary);
+
+  color: var(--color-white);
+}
+
+.service-carousel__button:active {
+  transform:
+    translateY(-50%)
+    scale(0.95);
+}
+
+.service-carousel__button--prev {
+  left: var(--space-4);
+}
+
+.service-carousel__button--next {
+  right: var(--space-4);
+}
+
+.service-carousel__button span {
+  display: block;
+
+  font-size: 2rem;
+  line-height: 1;
+}
+
+
+/* ========================================
+   Carousel counter
+======================================== */
+
+.service-carousel__counter {
+  margin-top: var(--space-3);
+
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-sm);
+
+  text-align: center;
+}
+
+
+/* ========================================
+   CTA
+======================================== */
+
+.services-page__cta {
+  background-color: var(--color-white);
+}
+
+.services-page__cta-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: var(--space-6);
+
+  padding: var(--space-7);
+
+  background-color: var(--color-background);
+
+  border-radius: var(--radius-lg);
+}
+
+.services-page__cta-description {
+  max-width: 38rem;
+
+  margin-top: var(--space-4);
+
+  color: var(--color-text-muted);
+
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   Hover capable devices
+======================================== */
+
+@media (hover: hover) {
+
+  .services-page__service-summary {
+    transition:
+      background-color var(--transition-fast);
+  }
+
+  .services-page__service-title,
+  .services-page__service-number {
+    transition:
+      transform var(--transition-fast);
+  }
+
+  .services-page__service-summary:hover {
+    background-color: var(--color-background);
+  }
+
+  .services-page__service-summary:hover
+  .services-page__service-title {
+    transform: translateX(0.35rem);
+  }
+
+  .services-page__service-summary:hover
+  .services-page__service-number {
+    transform: translateX(0.15rem);
+  }
+
+}
+
+
+/* ========================================
+   Tablet
+======================================== */
+
+@media (min-width: 48rem) {
+
+  .services-page__service-summary {
+    gap: var(--space-5);
+
+    padding-block: var(--space-7);
+  }
+
+  .services-page__service-info {
+    margin-left: calc(2rem + var(--space-5));
+  }
+
+  .services-page__service-items {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .services-page__cta-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+}
+
+
+/* ========================================
+   Desktop
+======================================== */
+
+@media (min-width: 64rem) {
+
+  .services-page__hero {
+    padding-block:
+      var(--space-10)
+      var(--space-9);
+  }
+
+  .services-page__service-summary {
+    padding-block: var(--space-7);
+  }
+
+  .services-page__service-content {
+    padding-bottom: var(--space-9);
+  }
+
+  .services-page__service-info {
+    grid-template-columns:
+      minmax(0, 1.2fr)
+      minmax(18rem, 0.8fr);
+
+    align-items: start;
+
+    max-width: none;
+
+    margin-bottom: var(--space-8);
+  }
+
+  .services-page__service-details {
+    padding-left: var(--space-6);
+
+    border-left: 1px solid var(--color-border);
+  }
+
+  .service-carousel__viewport {
+    min-height: 34rem;
+  }
+
+  .services-page__cta-content {
+    padding: var(--space-8);
+  }
+
+}
+
+
+/* ========================================
+   Mobile
+======================================== */
+
+@media (max-width: 47.99rem) {
+
+  .services-page__hero {
+    padding-block:
+      var(--space-8)
+      var(--space-7);
+  }
+
+  .services-page__service-summary {
+    grid-template-columns:
+      auto
+      minmax(0, 1fr)
+      auto;
+
+    gap: var(--space-3);
+  }
+
+  .services-page__service-number {
+    min-width: 1.5rem;
+  }
+
+  .services-page__service-title {
+    font-size: 1.4rem;
+  }
+
+  .services-page__service-toggle {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .services-page__service-info {
+    margin-left: 0;
+  }
+
+  .service-carousel__viewport {
+    min-height: 22rem;
+  }
+
+  .service-carousel__button {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .service-carousel__button--prev {
+    left: var(--space-2);
+  }
+
+  .service-carousel__button--next {
+    right: var(--space-2);
+  }
+
+}
