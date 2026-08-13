@@ -1,0 +1,155 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/common/Container.astro";
+import Button from "../components/ui/Button.astro";
+
+import { companyServices } from "../data/companyServices";
+
+
+---
+
+<Layout
+  title="Servicios | CIRCROM"
+  description="Conoce los servicios de construcción, remodelación, diseño, instalaciones y adecuación de espacios que ofrece CIRCROM."
+>
+  <main>
+
+    <!-- ========================================
+         Hero
+    ======================================== -->
+
+    <section class="services-page__hero">
+      <Container class="container--wide">
+        <div class="services-page__hero-content">
+
+          <p class="services-page__eyebrow">
+            Servicios
+          </p>
+
+          <h1 class="services-page__hero-title">
+            Soluciones para cada etapa de tu proyecto
+          </h1>
+
+          <p class="services-page__hero-description">
+            Integramos distintas especialidades para desarrollar, transformar
+            y adecuar espacios de acuerdo con las necesidades de cada proyecto.
+          </p>
+
+        </div>
+      </Container>
+    </section>
+
+
+    <!-- ========================================
+         Services list
+    ======================================== -->
+
+    <section class="services-page__catalog section">
+      <Container class="container--wide">
+
+        <div class="services-page__list">
+          {
+            companyServices.map((service, index) => {
+              const number = String(index + 1).padStart(2, "0");
+
+              return (
+                <details class="services-page__service">
+
+                  <summary class="services-page__service-summary">
+
+                    <span class="services-page__service-number">
+                      {number}
+                    </span>
+
+                    <h2 class="services-page__service-title">
+                      {service.title}
+                    </h2>
+
+                    <span
+                      class="services-page__service-toggle"
+                      aria-hidden="true"
+                    >
+                      +
+                    </span>
+
+                  </summary>
+
+
+                  <div class="services-page__service-content">
+
+                    <p class="services-page__service-description">
+                      {service.description}
+                    </p>
+
+                    {
+                      service.items?.length > 0 && (
+                        <div class="services-page__service-details">
+
+                          <p class="services-page__service-details-label">
+                            Servicios relacionados
+                          </p>
+
+                          <ul class="services-page__service-items">
+                            {
+                              service.items.map((item) => (
+                                <li>{item}</li>
+                              ))
+                            }
+                          </ul>
+
+                        </div>
+                      )
+                    }
+
+                  </div>
+
+                </details>
+              );
+            })
+          }
+        </div>
+
+      </Container>
+    </section>
+
+
+    <!-- ========================================
+         CTA
+    ======================================== -->
+
+    <section class="services-page__cta section">
+      <Container class="container--wide">
+
+        <div class="services-page__cta-content">
+
+          <div class="services-page__cta-text">
+
+            <p class="services-page__eyebrow">
+              ¿Tienes un proyecto?
+            </p>
+
+            <h2 class="services-page__section-title">
+              Conversemos sobre lo que necesitas
+            </h2>
+
+            <p class="services-page__cta-description">
+              Cuéntanos las necesidades de tu proyecto y encontremos
+              la solución adecuada para llevarlo a cabo.
+            </p>
+
+          </div>
+
+          <Button
+            href="/#contacto"
+            size="lg"
+          >
+            Contactar a CIRCROM
+          </Button>
+
+        </div>
+
+      </Container>
+    </section>
+
+  </main>
+</Layout>
