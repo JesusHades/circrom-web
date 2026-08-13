@@ -257,6 +257,60 @@
 }
 
 /* ========================================
+   Values scroll reveal
+======================================== */
+
+.about-page__values-heading,
+.about-page__value-card {
+  opacity: 0;
+  transform: translateY(1rem);
+}
+
+
+/* Heading */
+
+.about-page__values.is-visible
+.about-page__values-heading {
+  animation:
+    about-fade-up
+    0.8s
+    ease-out
+    forwards;
+}
+
+
+/* Cards */
+
+.about-page__values.is-visible
+.about-page__value-card {
+  animation:
+    about-fade-up
+    0.8s
+    ease-out
+    forwards;
+}
+
+.about-page__values.is-visible
+.about-page__value-card:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.about-page__values.is-visible
+.about-page__value-card:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.about-page__values.is-visible
+.about-page__value-card:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+.about-page__values.is-visible
+.about-page__value-card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+/* ========================================
    Reduced motion
 ======================================== */
 
@@ -290,6 +344,13 @@
     }
 
     .about-page__purpose-card {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+
+    .about-page__values-heading,
+    .about-page__value-card {
         opacity: 1;
         transform: none;
         animation: none;
