@@ -214,6 +214,49 @@
 }
 
 /* ========================================
+   Purpose scroll reveal
+======================================== */
+
+.about-page__purpose-card {
+  opacity: 0;
+}
+
+
+/* Mission */
+
+.about-page__purpose.is-visible
+.about-page__purpose-card:nth-child(1) {
+  animation:
+    about-fade-left
+    0.9s
+    ease-out
+    0.25s
+    forwards;
+}
+
+
+/* Vision */
+
+.about-page__purpose.is-visible
+.about-page__purpose-card:nth-child(2) {
+  animation:
+    about-fade-right
+    0.9s
+    ease-out
+    0.5s
+    forwards;
+}
+
+@media (max-width: 47.99rem) {
+  .about-page__purpose.is-visible
+  .about-page__purpose-card:nth-child(1),
+  .about-page__purpose.is-visible
+  .about-page__purpose-card:nth-child(2) {
+    animation-name: about-fade-up;
+  }
+}
+
+/* ========================================
    Reduced motion
 ======================================== */
 
@@ -231,6 +274,22 @@
 
     .about-page__intro-heading,
     .about-page__intro-copy p {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+
+    .about-page__portrait,
+    .about-page__leadership-content .about-page__eyebrow,
+    .about-page__leadership-content .about-page__section-title,
+    .about-page__director,
+    .about-page__leadership-description {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+
+    .about-page__purpose-card {
         opacity: 1;
         transform: none;
         animation: none;
