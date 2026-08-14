@@ -25,7 +25,9 @@
 ======================================== */
 
 .about-page__hero {
-  padding-block: var(--space-9);
+  padding-block:
+    var(--space-9)
+    var(--space-8);
 
   background-color: var(--color-background);
 }
@@ -90,6 +92,8 @@
 ======================================== */
 
 .about-page__intro {
+  padding-block: var(--space-8);
+
   background-color: var(--color-white);
 }
 
@@ -118,6 +122,8 @@
 ======================================== */
 
 .about-page__purpose {
+  padding-block: var(--space-8);
+
   background-color: var(--color-background);
 }
 
@@ -175,6 +181,8 @@
 ======================================== */
 
 .about-page__leadership {
+  padding-block: var(--space-8);
+
   background-color: var(--color-white);
 }
 
@@ -235,6 +243,8 @@
 ======================================== */
 
 .about-page__values {
+  padding-block: var(--space-8);
+
   background-color: var(--color-background);
 }
 
@@ -303,6 +313,8 @@
 ======================================== */
 
 .about-page__cta {
+  padding-block: var(--space-8);
+
   background-color: var(--color-white);
 }
 
@@ -336,6 +348,7 @@
 ======================================== */
 
 @media (min-width: 48rem) {
+
   .about-page__purpose-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -349,6 +362,7 @@
     align-items: center;
     justify-content: space-between;
   }
+
 }
 
 
@@ -357,8 +371,11 @@
 ======================================== */
 
 @media (min-width: 64rem) {
+
   .about-page__hero {
-    padding-block: var(--space-10);
+    padding-block:
+      var(--space-9)
+      var(--space-8);
   }
 
   .about-page__hero-grid {
@@ -410,4 +427,5 @@
   .about-page__cta-content {
     padding: var(--space-8);
   }
+
 }

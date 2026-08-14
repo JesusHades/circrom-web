@@ -36,7 +36,7 @@
 .services-page__hero {
   padding-block:
     var(--space-9)
-    var(--space-8);
+    var(--space-6);
 
   background-color: var(--color-background);
 }
@@ -71,6 +71,9 @@
 ======================================== */
 
 .services-page__catalog {
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-7);
+
   background-color: var(--color-white);
 }
 
@@ -391,6 +394,8 @@
 ======================================== */
 
 .services-page__cta {
+  padding-block: var(--space-8);
+
   background-color: var(--color-white);
 }
 
@@ -491,8 +496,8 @@
 
   .services-page__hero {
     padding-block:
-      var(--space-10)
-      var(--space-9);
+      var(--space-9)
+      var(--space-7);
   }
 
   .services-page__service-summary {
